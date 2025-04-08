@@ -1,19 +1,12 @@
 using UnityEngine;
 
-public interface IPlayerState
+public abstract class PlayerState
 {
-    public void Update()
-    {
+    public abstract void Update();
 
-    }
+    public abstract void Jump();
 
-    public void EnterState()
-    {
+    public abstract void EnterState();
 
-    }
-
-    public void ExitState() 
-    { 
-    
-    }
+    public abstract void ExitState();
 }

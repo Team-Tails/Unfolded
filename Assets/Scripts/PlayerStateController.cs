@@ -1,23 +1,52 @@
 using UnityEngine;
 
+public enum PlayerStateEnum
+{
+    Bunny,
+    Rhino,
+    Plane,
+}
+
 public class PlayerStateController: MonoBehaviour 
 {
-    private IPlayerState currentState;
+    private PlayerState currentState;
 
     private void Update()
     {
         currentState.Update();
     }
 
-    public void ChangeState(IPlayerState newState)
+    public void ChangeState(PlayerStateEnum newState)
     {
-        if (currentState == newState) return;
+        PlayerState iState = ConvertStateToInterface(newState);
+
+        if (currentState == iState) return;
 
         if (currentState != null)
         {
             currentState.ExitState();
         }
-        currentState = newState;
+        currentState = iState;
         currentState.EnterState();
+    }
+
+    private PlayerState ConvertStateToInterface(PlayerStateEnum state)
+    {
+        PlayerState iState = null;
+
+        switch (state)
+        {
+            case PlayerStateEnum.Bunny:
+
+                break;
+            case PlayerStateEnum.Rhino:
+
+                break;
+            case PlayerStateEnum.Plane:
+
+                break;
+        }
+
+        return iState;
     }
 }
