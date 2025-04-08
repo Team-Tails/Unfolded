@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 821bdb56c4110c841816df2632335cc6
+timeCreated: 1531469141
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 123159
+  packageName: Origami Pack
+  packageVersion: 1.0
+  assetPath: Assets/Runemark Studio/Origami Pack/Prefabs/Dog.prefab
+  uploadId: 256040

@@ -1,0 +1,601 @@
+# MTL file - created by a modified js OBJExporter
+
+newmtl 88
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 88.png
+map_Pm metalnessMap1.png
+map_Pr metalnessMap1.png
+
+newmtl 89
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 90
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 90.png
+map_Pm metalnessMap3.png
+map_Pr metalnessMap3.png
+
+newmtl 91
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 92
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 90.png
+map_Pm metalnessMap3.png
+map_Pr metalnessMap3.png
+
+newmtl 93
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 94
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 94.png
+map_Pm metalnessMap7.png
+map_Pr metalnessMap7.png
+
+newmtl 95
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 95.png
+map_Pm metalnessMap8.png
+map_Pr metalnessMap8.png
+
+newmtl 96
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 97
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 98
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 90.png
+map_Pm metalnessMap3.png
+map_Pr metalnessMap3.png
+
+newmtl 99
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 100
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 101
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 102
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 103
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 103.png
+map_Pm metalnessMap16.png
+map_Pr metalnessMap16.png
+
+newmtl 104
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 104.png
+map_Pm metalnessMap17.png
+map_Pr metalnessMap17.png
+
+newmtl 105
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 105.png
+map_Pm metalnessMap18.png
+map_Pr metalnessMap18.png
+
+newmtl 106
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 103.png
+map_Pm metalnessMap16.png
+map_Pr metalnessMap16.png
+
+newmtl 107
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 104.png
+map_Pm metalnessMap17.png
+map_Pr metalnessMap17.png
+
+newmtl 108
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 105.png
+map_Pm metalnessMap18.png
+map_Pr metalnessMap18.png
+
+newmtl 109
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 103.png
+map_Pm metalnessMap16.png
+map_Pr metalnessMap16.png
+
+newmtl 110
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 104.png
+map_Pm metalnessMap17.png
+map_Pr metalnessMap17.png
+
+newmtl 111
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 105.png
+map_Pm metalnessMap18.png
+map_Pr metalnessMap18.png
+
+newmtl 112
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 103.png
+map_Pm metalnessMap16.png
+map_Pr metalnessMap16.png
+
+newmtl 113
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 104.png
+map_Pm metalnessMap17.png
+map_Pr metalnessMap17.png
+
+newmtl 114
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 105.png
+map_Pm metalnessMap18.png
+map_Pr metalnessMap18.png
+
+newmtl 115
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 90.png
+map_Pm metalnessMap3.png
+map_Pr metalnessMap3.png
+
+newmtl 116
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 116.png
+map_Pm metalnessMap29.png
+map_Pr metalnessMap29.png
+
+newmtl 117
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 117.png
+map_Pm metalnessMap30.png
+map_Pr metalnessMap30.png
+
+newmtl 118
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 118.png
+map_Pm metalnessMap31.png
+map_Pr metalnessMap31.png
+
+newmtl 119
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 119.png
+map_Pm metalnessMap32.png
+map_Pr metalnessMap32.png
+
+newmtl 120
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 90.png
+map_Pm metalnessMap3.png
+map_Pr metalnessMap3.png
+
+newmtl 121
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 89.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl 122
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 122.png
+map_Pm metalnessMap35.png
+map_Pr metalnessMap35.png
+
+newmtl 123
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 123.png
+map_Pm metalnessMap36.png
+map_Pr metalnessMap36.png
+
+newmtl 124
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 124.png
+map_Pm metalnessMap37.png
+map_Pr metalnessMap37.png
+
+newmtl 125
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 125.png
+map_Pm metalnessMap38.png
+map_Pr metalnessMap38.png
+
+newmtl 126
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 94.png
+map_Pm metalnessMap7.png
+map_Pr metalnessMap7.png
+
+newmtl 127
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd 127.png
+map_Pm metalnessMap40.png
+map_Pr metalnessMap40.png

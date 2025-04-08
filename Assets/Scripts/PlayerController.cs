@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour
         moveInput.y = Input.GetAxis("Vertical");
         moveInput.Normalize();
 
-        theRB.velocity = new Vector3(moveInput.x * moveSpeed, theRB.velocity.y, moveInput.y * moveSpeed);
+        theRB.linearVelocity = new Vector3(moveInput.x * moveSpeed, theRB.linearVelocity.y, moveInput.y * moveSpeed);
 
-        anim.SetFloat("moveSpeed", theRB.velocity.magnitude);
+        anim.SetFloat("moveSpeed", theRB.linearVelocity.magnitude);
 
         RaycastHit hit;
         if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsGround))
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            theRB.velocity += new Vector3(0f, jumpForce, 0f);
+            theRB.linearVelocity += new Vector3(0f, jumpForce, 0f);
         }
 
         anim.SetBool("onGround", isGrounded);

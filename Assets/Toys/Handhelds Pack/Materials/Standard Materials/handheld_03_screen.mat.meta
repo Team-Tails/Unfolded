@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e9088bc5054a6f1438faf6d68e32732d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225057
+  packageName: Handheld Games
+  packageVersion: 1.0
+  assetPath: Assets/Handhelds Pack/Materials/Standard Materials/handheld_03_screen.mat
+  uploadId: 509757

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3cc9be1e4de713c4192e87916b6bab03
+timeCreated: 1531469153
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 123159
+  packageName: Origami Pack
+  packageVersion: 1.0
+  assetPath: Assets/Runemark Studio/Origami Pack/Prefabs/Rat.prefab
+  uploadId: 256040

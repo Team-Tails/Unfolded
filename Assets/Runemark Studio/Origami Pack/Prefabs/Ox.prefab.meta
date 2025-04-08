@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 542eac6dcaa12ba4aae6437db06b46ee
+timeCreated: 1531469149
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 123159
+  packageName: Origami Pack
+  packageVersion: 1.0
+  assetPath: Assets/Runemark Studio/Origami Pack/Prefabs/Ox.prefab
+  uploadId: 256040

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b3b64fffd0a01784bba52106fbea62f1
+timeCreated: 1531469139
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 123159
+  packageName: Origami Pack
+  packageVersion: 1.0
+  assetPath: Assets/Runemark Studio/Origami Pack/Prefabs/Crane.prefab
+  uploadId: 256040
