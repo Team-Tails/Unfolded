@@ -6,10 +6,11 @@ public class PlaneState : PlayerState
     private const float FLY_TIME = 3f;
 
     private float timer = 0;
+    private PlayerState previousState;
 
-    public override void Start()
+    public override void Start(PlayerStateController controller)
     {
-        base.Start();
+        base.Start(controller);
         jumpHeight = PLANE_JUMP_HEIGHT;
     }
 
@@ -21,14 +22,24 @@ public class PlaneState : PlayerState
 
         if (timer >= FLY_TIME)
         {
-
+            if (previousState != null)
+            {
+                controller.ChangeState(previousState);
+                previousState = null;
+            }
+            else
+            {
+                Debug.LogWarning("Plane state was entered without a previous state. Defaulting to bunny state.");
+                controller.ChangeState(controller.BunnyState);
+            }
         }
     }
 
-    public override void EnterState()
+    public override void EnterState(PlayerState prevState)
     {
-        base.EnterState();
+        base.EnterState(prevState);
 
+        previousState = prevState;
         timer = 0;
     }
 }

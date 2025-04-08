@@ -3,10 +3,11 @@ using UnityEngine;
 public abstract class PlayerState
 {
     protected float jumpHeight = 0;
+    protected PlayerStateController controller;
 
-    public virtual void Start()
+    public virtual void Start(PlayerStateController controller)
     {
-
+        this.controller = controller;
     }
 
     public virtual void Update()
@@ -19,7 +20,7 @@ public abstract class PlayerState
 
     }
 
-    public virtual void EnterState()
+    public virtual void EnterState(PlayerState prevState)
     {
 
     }

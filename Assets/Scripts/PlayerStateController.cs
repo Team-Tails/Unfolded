@@ -18,9 +18,9 @@ public class PlayerStateController: MonoBehaviour
     {
         ChangeState(bunnyState);
 
-        bunnyState.Start();
-        rhinoState.Start();
-        planeState.Start();
+        bunnyState.Start(this);
+        rhinoState.Start(this);
+        planeState.Start(this);
     }
 
     private void Update()
@@ -35,11 +35,14 @@ public class PlayerStateController: MonoBehaviour
     {
         if (currentState == newState) return;
 
+        PlayerState prevState = currentState;
+
         if (currentState != null)
         {
             currentState.ExitState();
         }
+
         currentState = newState;
-        currentState.EnterState();
+        currentState.EnterState(prevState);
     }
 }
