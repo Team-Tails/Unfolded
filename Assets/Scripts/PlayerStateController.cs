@@ -1,52 +1,39 @@
 using UnityEngine;
 
-public enum PlayerStateEnum
-{
-    Bunny,
-    Rhino,
-    Plane,
-}
-
 public class PlayerStateController: MonoBehaviour 
 {
     private PlayerState currentState;
 
-    private void Update()
+    public BunnyState bunnyState = new BunnyState();
+    public RhinoState rhinoState = new RhinoState();
+    public PlaneState planeState = new PlaneState();
+
+    private void Start()
     {
-        currentState.Update();
+        ChangeState(bunnyState);
+
+        bunnyState.Start();
+        rhinoState.Start();
+        planeState.Start();
     }
 
-    public void ChangeState(PlayerStateEnum newState)
+    private void Update()
     {
-        PlayerState iState = ConvertStateToInterface(newState);
+        if (currentState != null)
+        {
+            currentState.Update();
+        }
+    }
 
-        if (currentState == iState) return;
+    public void ChangeState(PlayerState newState)
+    {
+        if (currentState == newState) return;
 
         if (currentState != null)
         {
             currentState.ExitState();
         }
-        currentState = iState;
+        currentState = newState;
         currentState.EnterState();
-    }
-
-    private PlayerState ConvertStateToInterface(PlayerStateEnum state)
-    {
-        PlayerState iState = null;
-
-        switch (state)
-        {
-            case PlayerStateEnum.Bunny:
-
-                break;
-            case PlayerStateEnum.Rhino:
-
-                break;
-            case PlayerStateEnum.Plane:
-
-                break;
-        }
-
-        return iState;
     }
 }

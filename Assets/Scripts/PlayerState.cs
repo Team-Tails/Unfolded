@@ -2,11 +2,30 @@ using UnityEngine;
 
 public abstract class PlayerState
 {
-    public abstract void Update();
+    protected float jumpHeight = 0;
 
-    public abstract void Jump();
+    public virtual void Start()
+    {
 
-    public abstract void EnterState();
+    }
 
-    public abstract void ExitState();
+    public virtual void Update()
+    {
+
+    }
+
+    public virtual void Jump()
+    {
+
+    }
+
+    public virtual void EnterState()
+    {
+
+    }
+
+    public virtual void ExitState()
+    {
+        // Play Animation Here like the poof
+    }
 }
