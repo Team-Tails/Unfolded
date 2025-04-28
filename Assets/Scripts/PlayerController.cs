@@ -4,82 +4,87 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody theRB;
-    public float moveSpeed, jumpForce;
-
+    [SerializeField] //These SerializeFields mean that these variables are set in editor
+    private CharacterController characterController;
+    [SerializeField]
+    private float moveSpeed, jumpForce;
     private Vector2 moveInput;
-
-    public LayerMask whatIsGround;
-    public Transform groundPoint;
+    private Vector3 playerVelocity;
     private bool isGrounded;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
 
-    public Animator anim;
-
-    public SpriteRenderer theSR;
-
-    private bool movingBackwards;
-
-    public Animator flipAnim;
-
-
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool isMovingBackwards;
+    [SerializeField]
+    private Animator flipAnimator;
+    private const float GRAVITY = -9.81f;
+    private const float JUMPMULT = -2.0f;
 
     // Update is called once per frame
     void Update()
     {
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
-        moveInput.Normalize();
-
-        theRB.linearVelocity = new Vector3(moveInput.x * moveSpeed, theRB.linearVelocity.y, moveInput.y * moveSpeed);
-
-        anim.SetFloat("moveSpeed", theRB.linearVelocity.magnitude);
-
-        RaycastHit hit;
-        if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsGround))
+        isGrounded = characterController.isGrounded;
+        if (isGrounded && playerVelocity.y < 0)
         {
-            isGrounded = true;
+            playerVelocity.y = 0f;
         }
-        else
+
+        moveInput.x = Input.GetAxis("Horizontal");
+        moveInput.y = Input.GetAxis("Vertical");  
+        Vector3 move = new(moveInput.x, 0, moveInput.y);  
+        move.Normalize();
+
+        if (move != Vector3.zero)
         {
-            isGrounded = false;
+            transform.forward = move;
         }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            theRB.linearVelocity += new Vector3(0f, jumpForce, 0f);
+            playerVelocity.y = Mathf.Sqrt(jumpForce * JUMPMULT * GRAVITY);
         }
 
-        anim.SetBool("onGround", isGrounded);
+        playerVelocity.y += GRAVITY * Time.deltaTime;
 
-        if(!theSR.flipX && moveInput.x < 0)
-        {
-            theSR.flipX = true;
-            flipAnim.SetTrigger("Flip");
-        }
-        else if (theSR.flipX && moveInput.x > 0)
-        {
-            theSR.flipX = false;
-            flipAnim.SetTrigger("Flip");
-        }
 
-        if(!movingBackwards && moveInput.y > 0)
-        {
-            movingBackwards = true;
-            flipAnim.SetTrigger("Flip");
+        animator.SetBool("onGround", isGrounded);
 
-        }
-        else if (movingBackwards && moveInput.y < 0)
-        {
-            movingBackwards = false;
-            flipAnim.SetTrigger("Flip");
-        }
-        anim.SetBool("movingBackwards", movingBackwards);
+        HandleAnimationFlip();
+        
+        animator.SetBool("movingBackwards", isMovingBackwards);
        
+        Vector3 finalMovement = (move * moveSpeed) + (playerVelocity.y * Vector3.up);
+        characterController.Move(finalMovement * Time.deltaTime);
+
+        animator.SetFloat("moveSpeed", characterController.velocity.magnitude);
+
+    }
+
+    void HandleAnimationFlip()
+    {
+        if(!spriteRenderer.flipX && moveInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+            flipAnimator.SetTrigger("Flip");
+        }
+        else if (spriteRenderer.flipX && moveInput.x > 0)
+        {
+            spriteRenderer.flipX = false;
+            flipAnimator.SetTrigger("Flip");
+        }
+
+        if(!isMovingBackwards && moveInput.y > 0)
+        {
+            isMovingBackwards = true;
+            flipAnimator.SetTrigger("Flip");
+
+        }
+        else if (isMovingBackwards && moveInput.y < 0)
+        {
+            isMovingBackwards = false;
+            flipAnimator.SetTrigger("Flip");
+        }
     }
 }
