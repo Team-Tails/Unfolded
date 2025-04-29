@@ -17,6 +17,8 @@ public class HealthDisplayManager : MonoBehaviour
 
     private void OnHealthUpdate(int oldHealth, int newHealth)
     {
+        if (oldHealth == newHealth) return;
+
         UpdateHeartDisplay(newHealth);
     }
 
@@ -27,11 +29,14 @@ public class HealthDisplayManager : MonoBehaviour
             Destroy(heart);
         }
 
+        displayHearts.Clear();
+
         for (int i = 0; i < newHealth; i++)
         {
             GameObject newHeart = Instantiate(heartPrefab, transform);
             Vector3 heartPos = heartDisplayPos.localPosition + new Vector3(50 * i, 0, 0);
             newHeart.transform.localPosition = heartPos;
+            displayHearts.Add(newHeart);
         }
     }
 }
