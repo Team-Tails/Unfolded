@@ -3,14 +3,15 @@ using UnityEngine.Events;
 
 public class HealthManager : MonoBehaviour
 {
-    public UnityEvent<int> OnHealthChange;
+    [HideInInspector] public UnityEvent<int, int> OnHealthChange;
 
     [SerializeField] private int maxHealth;
     private int health;
     public int Health { get => health; private set
         {
+            int oldHealth = health;
             health = value;
-            OnHealthChange?.Invoke(health);
+            OnHealthChange?.Invoke(oldHealth, health);
         }
     }
 
