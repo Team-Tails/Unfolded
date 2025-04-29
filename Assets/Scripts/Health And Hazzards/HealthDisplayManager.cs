@@ -15,6 +15,12 @@ public class HealthDisplayManager : MonoBehaviour
         healthManager.OnHealthChange.AddListener(OnHealthUpdate);
     }
 
+    private void Start()
+    {
+        // Disables the editor text
+        heartDisplayPos.gameObject.SetActive(false);
+    }
+
     private void OnHealthUpdate(int oldHealth, int newHealth)
     {
         if (oldHealth == newHealth) return;
