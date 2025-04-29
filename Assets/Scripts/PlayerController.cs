@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,19 +32,12 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");  
         Vector3 move = new(moveInput.x, 0, moveInput.y);  
         move.Normalize();
 
         if (move != Vector3.zero)
         {
             transform.forward = move;
-        }
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            playerVelocity.y = Mathf.Sqrt(jumpForce * JUMPMULT * GRAVITY);
         }
 
         playerVelocity.y += GRAVITY * Time.deltaTime;
@@ -62,6 +56,32 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        print("Move input");
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed && isGrounded)
+        {
+            print("Jump input");
+            playerVelocity.y = Mathf.Sqrt(jumpForce * JUMPMULT * GRAVITY);
+        }
+    }
+
+    public void OnRabbitChange(InputAction.CallbackContext context)
+    {
+        //switch to rabbit and make sure the player isnt already a rabbit
+        //playerstate = PlayerState.Rabbit;
+    }
+
+    public void OnRhinoChange(InputAction.CallbackContext context)
+    {
+        //switch to rhino and make sure the player isnt already a rhino
+        //playerstate = PlayerState.Rhino;
+    }
     void HandleAnimationFlip()
     {
         if(!spriteRenderer.flipX && moveInput.x < 0)

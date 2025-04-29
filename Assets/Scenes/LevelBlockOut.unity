@@ -17149,8 +17149,121 @@ PrefabInstance:
     - {fileID: 4505938624751487289, guid: ef35c0ba0333b7d4c836e05714776caa, type: 3}
     - {fileID: 3604169289610718547, guid: ef35c0ba0333b7d4c836e05714776caa, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5089055795875399418, guid: ef35c0ba0333b7d4c836e05714776caa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2812482762610810632}
   m_SourcePrefab: {fileID: 100100000, guid: ef35c0ba0333b7d4c836e05714776caa, type: 3}
+--- !u!1 &2812482762610810631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5089055795875399418, guid: ef35c0ba0333b7d4c836e05714776caa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2812482762610810630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2812482762610810632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812482762610810631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2e98812f2d275bb419646832b14a2d3b,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2812482762610810633}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1cb3b0a9-fa15-4888-92f3-bdfedb11039f
+    m_ActionName: Player/Move
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8aa6a5cd-271e-478c-bc78-5180d1ee8161
+    m_ActionName: Player/Look
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2812482762610810633}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e0b4ad99-e602-44d5-867e-54b6c1de9673
+    m_ActionName: Player/Jump
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 07890740-cfca-4df4-9093-9ed8c725b67c
+    m_ActionName: Player/Pause
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7120202d-e8ec-4364-88d5-5ee75dc65705
+    m_ActionName: Player/Rabbit
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dfd60e88-214a-4344-b842-399c25f58b96
+    m_ActionName: Player/Rhino
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 1170082230}
+--- !u!114 &2812482762610810633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6308382706750100949, guid: ef35c0ba0333b7d4c836e05714776caa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2812482762610810630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812482762610810631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d222975619129bf4fb25ec2f94f99673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
