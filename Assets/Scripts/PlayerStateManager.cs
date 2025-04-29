@@ -1,11 +1,26 @@
 using UnityEngine;
 
 /// <summary>
-/// Manages the state of the player e.g when it should change.
+/// Manages interacting with the state of the player e.g when it should change.
 /// </summary>
 public class PlayerStateManager : MonoBehaviour
 {
+    public static PlayerStateManager Instance;
+
     [SerializeField] private PlayerStateController controller;
+
+    public PlayerState CurrentState { get => controller.CurrentState; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this) 
+        {
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
+    }
 
     public void BunnyStatePress()
     {

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerStateController: MonoBehaviour 
 {
     private PlayerState currentState;
+    public PlayerState CurrentState { get => currentState; }
 
     private BunnyState bunnyState = new BunnyState();
     private RhinoState rhinoState = new RhinoState();
