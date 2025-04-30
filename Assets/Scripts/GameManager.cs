@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
     private int starCount = 0;
     public int StarCount {
         get {return starCount;}
-        set {starCount = value;}
+        set {UpdateStarCount(value);}
     }
+    [SerializeField]
+    private StarDisplayManager starDisplay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,11 +20,19 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         Instance = this;
+        starDisplay.UpdateStarDisplay();
     }
 
     // Update is called once per frame
     void Update()
     {  
-        Debug.Log(StarCount);
+
+    }
+
+    private void UpdateStarCount(int value)
+    {
+        starCount = value;
+        Debug.Log("UPDATE");
+        starDisplay.UpdateStarDisplay();
     }
 }
