@@ -4,7 +4,6 @@ public class MakeCollidedTransparent : MonoBehaviour
 {
   void OnTriggerEnter(Collider other)
   {
-    print(other.name + " entered trigger,    tag: " + other.tag);
     if (other.CompareTag("CanTransparent")) {
         other.GetComponent<MeshRenderer>().enabled = false;
     }
