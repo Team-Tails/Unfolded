@@ -3,9 +3,6 @@ using UnityEngine;
 public class CollectableStar : MonoBehaviour
 {
 
-    [SerializeField]
-    Collider body;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +17,7 @@ public class CollectableStar : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
         if(other.CompareTag("Player"))
         {
             GameManager.Instance.StarCount += 1;

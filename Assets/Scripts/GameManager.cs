@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -22,6 +23,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-        
+        Debug.Log(StarCount);
     }
 }
