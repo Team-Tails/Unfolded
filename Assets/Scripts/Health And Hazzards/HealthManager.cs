@@ -21,7 +21,7 @@ public class HealthManager : MonoBehaviour
 
             if (health == 0)
             {
-                StartDeathFade?.Invoke(deathFadeTimer);
+                StartDeathFade?.Invoke(deathFadeTimer);// Disable player controls when this happens and add the poof for example
             }
         }
     }
