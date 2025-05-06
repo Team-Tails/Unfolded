@@ -23,16 +23,9 @@ public class GameManager : MonoBehaviour
         starDisplay.UpdateStarDisplay();
     }
 
-    // Update is called once per frame
-    void Update()
-    {  
-
-    }
-
     private void UpdateStarCount(int value)
     {
         starCount = value;
-        Debug.Log("UPDATE");
         starDisplay.UpdateStarDisplay();
     }
 }
