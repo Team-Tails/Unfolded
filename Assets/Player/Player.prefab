@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 3728102235567779260}
   - component: {fileID: 6966919451966234170}
   - component: {fileID: 6308382706750100949}
-  - component: {fileID: 1189520955197427039}
+  - component: {fileID: 1628684272381879648}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -232,11 +232,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 3728102235567779260}
   moveSpeed: 10
-  jumpForce: 3
+  jumpForce: 5
   animator: {fileID: 8042176006061658187}
   spriteRenderer: {fileID: 6171944511431855634}
   flipAnimator: {fileID: 6966919451966234170}
---- !u!114 &1189520955197427039
+--- !u!114 &1628684272381879648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
