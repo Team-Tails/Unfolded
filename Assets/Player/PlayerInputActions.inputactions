@@ -29,7 +29,7 @@
                     "id": "e0b4ad99-e602-44d5-867e-54b6c1de9673",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.45),Tap(duration=0.1,pressPoint=0.01)",
                     "initialStateCheck": false
                 },
                 {
@@ -153,7 +153,7 @@
                     "name": "",
                     "id": "526b2b19-0664-418b-8a6c-d6c2146f5683",
                     "path": "<Keyboard>/space",
-                    "interactions": "Hold,Tap",
+                    "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Jump",
@@ -164,7 +164,7 @@
                     "name": "",
                     "id": "4db2499d-f9e0-45c7-ad91-829e269bc819",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Tap,Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Jump",

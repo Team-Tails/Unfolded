@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private Vector3 playerVelocity;
     private bool isGrounded;
+    private bool isJumping;
+    private float jumpTimer = 0.0f;
     [SerializeField]
     private Animator animator;
     [SerializeField]
@@ -39,7 +41,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.forward = move;
         }
-
+        if (isJumping)
+        {
+            jumpTimer += Time.deltaTime;
+        }
         playerVelocity.y += GRAVITY * Time.deltaTime;
 
 
@@ -58,16 +63,20 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        print("Move input");
         moveInput = context.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded)
+        if (context.started && isGrounded)
         {
-            print("Jump input");
-            playerVelocity.y = Mathf.Sqrt(jumpForce * JUMPMULT * GRAVITY);
+            isJumping = true;
+        }
+        if ((context.performed || context.canceled) && isGrounded )
+        {
+            playerVelocity.y = Mathf.Sqrt((jumpForce + (jumpTimer * 4.3f)) * JUMPMULT * GRAVITY);
+            isJumping = false;
+            jumpTimer = 0.0f;
         }
     }
 
