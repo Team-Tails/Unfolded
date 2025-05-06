@@ -44,7 +44,7 @@ public class HealthDisplayManager : MonoBehaviour
         for (int i = 0; i < newHealth; i++)
         {
             GameObject newHeart = Instantiate(heartPrefab, transform);
-            Vector3 heartPos = heartDisplayPos.localPosition + new Vector3(50 * i, 0, 0);
+            Vector3 heartPos = heartDisplayPos.localPosition + new Vector3(heartDisplayOffset * i, 0, 0);
             newHeart.transform.localPosition = heartPos;
             displayHearts.Add(newHeart);
         }
