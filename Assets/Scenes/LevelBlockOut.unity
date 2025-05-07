@@ -12013,48 +12013,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1628684272381879648, guid: ef35c0ba0333b7d4c836e05714776caa,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628684272381879648, guid: ef35c0ba0333b7d4c836e05714776caa,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[12].m_ActionId
-      value: a76083d4-cad4-4ded-959f-267cd71ee4c2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628684272381879648, guid: ef35c0ba0333b7d4c836e05714776caa,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[12].m_ActionName
-      value: Player/Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628684272381879648, guid: ef35c0ba0333b7d4c836e05714776caa,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
-      value: Player/Pause
-      objectReference: {fileID: 0}
     - target: {fileID: 5089055795875399418, guid: ef35c0ba0333b7d4c836e05714776caa,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5089055795875399418, guid: ef35c0ba0333b7d4c836e05714776caa,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5089055795875399418, guid: ef35c0ba0333b7d4c836e05714776caa,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1799034327}
-    - targetCorrespondingSourceObject: {fileID: 5089055795875399418, guid: ef35c0ba0333b7d4c836e05714776caa,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1799034333}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef35c0ba0333b7d4c836e05714776caa, type: 3}
 --- !u!1 &1424764180
 GameObject:
@@ -14974,64 +14941,18 @@ Transform:
   - {fileID: 936320595}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1799034326 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5089055795875399418, guid: ef35c0ba0333b7d4c836e05714776caa,
+--- !u!114 &1799034327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6209606462064524793, guid: ef35c0ba0333b7d4c836e05714776caa,
     type: 3}
   m_PrefabInstance: {fileID: 1416307647}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1799034327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799034326}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f81640f39f926ce449ecb17506d3e6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTag: Hazard
-  maxHealth: 3
-  deathFadeTimer: 2
-  fullFadeWait: 1
-  OnHealthChange:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDie:
-    m_PersistentCalls:
-      m_Calls: []
-  StartDeathFade:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!54 &1799034333
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799034326}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1815846428
 PrefabInstance:
   m_ObjectHideFlags: 0

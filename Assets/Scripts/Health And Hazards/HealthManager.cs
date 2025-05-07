@@ -4,7 +4,6 @@ using UnityEngine.Events;
 
 public class HealthManager : MonoBehaviour
 {
-    [SerializeField] private string damageTag;
     [SerializeField] private int maxHealth;
     [SerializeField] public float deathFadeTimer;
     [SerializeField] private float fullFadeWait;
@@ -33,17 +32,9 @@ public class HealthManager : MonoBehaviour
         OnDie.AddListener(OnDeath);
     }
 
-    private void DamagePlayer(int amount)
+    public void DamagePlayer(int amount)
     {
         Health -= amount;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag(damageTag))
-        {
-            DamagePlayer(1);
-        }
     }
 
     private IEnumerator DeathFade(float time)
