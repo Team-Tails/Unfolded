@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: afa34a8748c82294d8c76c0493fcdd59
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 33345
+  packageName: Spaceship
+  packageVersion: 1
+  assetPath: Assets/Spaceship/Prefab/Spaceship.prefab
+  uploadId: 56641
