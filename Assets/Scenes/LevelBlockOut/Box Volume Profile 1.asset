@@ -133,7 +133,7 @@ MonoBehaviour:
     m_Value: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.3207547, g: 0.2950338, b: 0.2950338, a: 1}
+    m_Value: {r: 0.3009078, g: 0.3962264, b: 0.33775243, a: 1}
   tint:
     m_OverrideState: 1
     m_Value: {r: 0.5943396, g: 0, b: 0, a: 1}
@@ -154,7 +154,7 @@ MonoBehaviour:
     m_Value: 3
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 30
+    m_Value: 20
   meanFreePath:
     m_OverrideState: 1
     m_Value: 1
@@ -163,7 +163,7 @@ MonoBehaviour:
     m_Value: 1
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 0.48584908, g: 0.8051233, b: 1, a: 1}
+    m_Value: {r: 0.49247953, g: 0.7304581, b: 0.8773585, a: 1}
   globalLightProbeDimmer:
     m_OverrideState: 0
     m_Value: 1
