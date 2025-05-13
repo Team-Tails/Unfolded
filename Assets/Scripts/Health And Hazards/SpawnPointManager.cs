@@ -19,6 +19,6 @@ public class SpawnPointManager : MonoBehaviour
 
     public void Respawn()
     {
-        healthManager.transform.position = spawnPoint.transform.position;
+        healthManager.transform.position = spawnPoint.transform.position + Vector3.up;
     }
 }

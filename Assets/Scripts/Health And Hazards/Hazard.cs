@@ -7,7 +7,6 @@ public class Hazard : MonoBehaviour
     
     private void OnTriggerEnter(Collider collision)
     {
-        print("collision");
         if (collision.gameObject.CompareTag("Player"))
         {
             healthManager.DamagePlayer(damage);
