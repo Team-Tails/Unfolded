@@ -20,20 +20,13 @@ public class PlaneState : PlayerState
     {
         base.Update();
 
+        if (controller.CurrentState != this) return;
+
         timer += Time.deltaTime;
 
         if (timer >= FLY_TIME)
         {
-            if (previousState != null)
-            {
-                controller.ChangeState(previousState);
-                previousState = null;
-            }
-            else
-            {
-                Debug.LogWarning("Plane state was entered without a previous state. Defaulting to bunny state.");
-                controller.ChangeState(controller.BunnyState);
-            }
+            EndPlaneState();
         }
     }
 
@@ -43,5 +36,20 @@ public class PlaneState : PlayerState
 
         previousState = prevState;
         timer = 0;
+    }
+
+    public void EndPlaneState()
+    {
+        if (previousState != null)
+        {
+            controller.ChangeState(previousState);
+            previousState = null;
+        }
+        else
+        {
+            Debug.LogWarning("Plane state was entered without a previous state. Defaulting to bunny state.");
+            controller.ChangeState(controller.BunnyState);
+            timer = 0;
+        }
     }
 }

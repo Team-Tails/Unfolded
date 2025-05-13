@@ -76,8 +76,6 @@ public class PlayerController : MonoBehaviour
         }
         if ((context.performed || context.canceled) && isGrounded )
         {
-            Debug.Log(stateController.CurrentState.JumpHeight);
-
             playerVelocity.y = Mathf.Sqrt((baseJumpForce + (jumpTimer * 4.3f)) * JUMPMULT * GRAVITY * stateController.CurrentState.JumpHeight);
             isJumping = false;
             jumpTimer = 0.0f;

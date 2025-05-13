@@ -20,7 +20,7 @@ public abstract class PlayerState
 
     public virtual void EnterState(PlayerState prevState)
     {
-        Debug.Log("Entered state");
+
     }
 
     public virtual void ExitState()
