@@ -3753,6 +3753,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blocks
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c99fd8773f44d4419783835359ad994,
+        type: 3}
+      propertyPath: m_TagString
+      value: CanTransparent
+      objectReference: {fileID: 0}
     - target: {fileID: 1129496810705857465, guid: 0c99fd8773f44d4419783835359ad994,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -7609,6 +7614,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: trainset
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39dd7b1a230535447a4650dfd76b70f7,
+        type: 3}
+      propertyPath: m_TagString
+      value: CanTransparent
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9726,6 +9736,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_telephone_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30f84ca2b5c5c7e4fb5cbd1ef1b464c4,
+        type: 3}
+      propertyPath: m_TagString
+      value: CanTransparent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15927,6 +15942,7 @@ GameObject:
   - component: {fileID: 1170082228}
   - component: {fileID: 1170082227}
   - component: {fileID: 1170082233}
+  - component: {fileID: 1170082234}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16204,6 +16220,18 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &1170082234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170082226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4736cca3b91efc443b730225595686f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1179930399
 GameObject:
   m_ObjectHideFlags: 0
@@ -20376,6 +20404,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: xylophone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9d14cfd8dcaf1c5418492ec4deb67f7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: CanTransparent
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 9d14cfd8dcaf1c5418492ec4deb67f7e, type: 3}
@@ -20790,6 +20823,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: handheld_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912834658239994884, guid: d12e38958fb61eb48aa2325b9bb0a2eb,
+        type: 3}
+      propertyPath: m_TagString
+      value: CanTransparent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25790,6 +25828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: handheld_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8263397846031707245, guid: af893132fe1221b409ac35ca02275911,
+        type: 3}
+      propertyPath: m_TagString
+      value: CanTransparent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32246,6 +32289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ABCcubes
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a83e78ea00a53c44e9dab3fc94c6922b,
+        type: 3}
+      propertyPath: m_TagString
+      value: CanTransparent
       objectReference: {fileID: 0}
     - target: {fileID: 7892624095698148751, guid: a83e78ea00a53c44e9dab3fc94c6922b,
         type: 3}
