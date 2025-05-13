@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] //These SerializeFields mean that these variables are set in editor
     private CharacterController characterController;
     [SerializeField]
-    private float moveSpeed, jumpForce;
+    private float moveSpeed, baseJumpForce;
     private Vector2 moveInput;
     private Vector3 playerVelocity;
     private bool isGrounded;
@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private Animator flipAnimator;
     private const float GRAVITY = -9.81f;
     private const float JUMPMULT = -2.0f;
+    [SerializeField]
+    private PlayerStateController stateController;
 
     // Update is called once per frame
     void Update()
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpTimer += Time.deltaTime;
         }
-        playerVelocity.y += GRAVITY * Time.deltaTime;
+        playerVelocity.y += GRAVITY * stateController.CurrentState.GravityMultiplier * Time.deltaTime;
 
 
         animator.SetBool("onGround", isGrounded);
@@ -74,7 +76,9 @@ public class PlayerController : MonoBehaviour
         }
         if ((context.performed || context.canceled) && isGrounded )
         {
-            playerVelocity.y = Mathf.Sqrt((jumpForce + (jumpTimer * 4.3f)) * JUMPMULT * GRAVITY);
+            Debug.Log(stateController.CurrentState.JumpHeight);
+
+            playerVelocity.y = Mathf.Sqrt((baseJumpForce + (jumpTimer * 4.3f)) * JUMPMULT * GRAVITY * stateController.CurrentState.JumpHeight);
             isJumping = false;
             jumpTimer = 0.0f;
         }
@@ -82,14 +86,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnRabbitChange(InputAction.CallbackContext context)
     {
-        //switch to rabbit and make sure the player isnt already a rabbit
-        //playerstate = PlayerState.Rabbit;
+        // Automatically checks if the state is already rabbit, and then does nothing.
+        stateController.ChangeState(stateController.BunnyState);
     }
 
     public void OnRhinoChange(InputAction.CallbackContext context)
     {
-        //switch to rhino and make sure the player isnt already a rhino
-        //playerstate = PlayerState.Rhino;
+        // Automatically checks if the state is already rhino, and then does nothing.
+        stateController.ChangeState(stateController.RhinoState);
     }
     void HandleAnimationFlip()
     {

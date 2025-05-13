@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlaneState : PlayerState
 {
     protected const float PLANE_JUMP_HEIGHT = 0;
+    protected const float PLANE_GRAVITY_MULTIPLIER = 0.2f;
     private const float FLY_TIME = 3f;
 
     private float timer = 0;
@@ -12,6 +13,7 @@ public class PlaneState : PlayerState
     {
         base.Start(controller);
         jumpHeight = PLANE_JUMP_HEIGHT;
+        gravityMutliplier = PLANE_GRAVITY_MULTIPLIER;
     }
 
     public override void Update()
