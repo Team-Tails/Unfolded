@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.XR;
 /// <summary>
 /// Controls the state of the player e.g changing it, and what it is.
 /// </summary>
-public class PlayerStateController: MonoBehaviour 
+public class PlayerStateController: Singleton<PlayerStateController> 
 {
     private PlayerState currentState;
     public PlayerState CurrentState { get => currentState; }
