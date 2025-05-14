@@ -10,6 +10,8 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private List<AudioFile> audioFiles;
 
+    private System.Random rand = new System.Random();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,7 +36,9 @@ public class SoundManager : MonoBehaviour
             select audioFile
         ).First();
 
-        audioSource.PlayOneShot(audioType.sound);
+        int soundSelect = rand.Next(0,audioType.sounds.Length);
+
+        audioSource.PlayOneShot(audioType.sounds[soundSelect]);
     }
 }
 
@@ -42,5 +46,5 @@ public class SoundManager : MonoBehaviour
 public struct AudioFile
 {
     [SerializeField] public string name;
-    [SerializeField] public AudioClip sound;
+    [SerializeField] public AudioClip[] sounds;
 }
