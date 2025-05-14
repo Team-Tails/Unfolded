@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
         
     }
 
-    public void PlaySound(string soundtype){
+    public void PlaySound(string soundtype, float volume = 1){
         var audioType = (
             from audioFile in audioFiles
             where audioFile.name == soundtype
@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour
 
         int soundSelect = rand.Next(0,audioType.sounds.Length);
 
-        audioSource.PlayOneShot(audioType.sounds[soundSelect]);
+        audioSource.PlayOneShot(audioType.sounds[soundSelect], volume);
     }
 }
 
