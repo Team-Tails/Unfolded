@@ -19,13 +19,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
-    private bool isMovingBackwards;
-    [SerializeField]
-    private Animator flipAnimator;
     private const float GRAVITY = -9.81f;
     private const float JUMPMULT = -2.0f;
     [SerializeField]
     private PlayerStateController stateController;
+
+    private void Start()
+    {
+        stateController.OnStateChange.AddListener(OnStateChange);
+    }
 
     // Update is called once per frame
     void Update()
@@ -53,14 +55,12 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("onGround", isGrounded);
 
         HandleAnimationFlip();
-        
-        animator.SetBool("movingBackwards", isMovingBackwards);
        
         Vector3 finalMovement = (move * moveSpeed) + (playerVelocity.y * Vector3.up);
         characterController.Move(finalMovement * Time.deltaTime);
 
         animator.SetFloat("moveSpeed", characterController.velocity.magnitude);
-
+        animator.SetBool("jumpCharging", isJumping);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -82,6 +82,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnStateChange(PlayerState state)
+    {
+        if (state == stateController.BunnyState)
+        {
+            animator.SetTrigger("changeRabbit");
+        }
+        else if (state == stateController.RhinoState) 
+        {
+            animator.SetTrigger("changeRhino");
+        }
+        else if (state == stateController.PlaneState)
+        {
+            animator.SetTrigger("changePlane");
+        }
+    }
+
     public void OnRabbitChange(InputAction.CallbackContext context)
     {
         // Automatically checks if the state is already rabbit, and then does nothing.
@@ -95,27 +111,27 @@ public class PlayerController : MonoBehaviour
     }
     void HandleAnimationFlip()
     {
-        if(!spriteRenderer.flipX && moveInput.x < 0)
-        {
-            spriteRenderer.flipX = true;
-            flipAnimator.SetTrigger("Flip");
-        }
-        else if (spriteRenderer.flipX && moveInput.x > 0)
-        {
-            spriteRenderer.flipX = false;
-            flipAnimator.SetTrigger("Flip");
-        }
+        //if(!spriteRenderer.flipX && moveInput.x < 0)
+        //{
+        //    spriteRenderer.flipX = true;
+        //    flipAnimator.SetTrigger("Flip");
+        //}
+        //else if (spriteRenderer.flipX && moveInput.x > 0)
+        //{
+        //    spriteRenderer.flipX = false;
+        //    flipAnimator.SetTrigger("Flip");
+        //}
 
-        if(!isMovingBackwards && moveInput.y > 0)
-        {
-            isMovingBackwards = true;
-            flipAnimator.SetTrigger("Flip");
+        //if(!isMovingBackwards && moveInput.y > 0)
+        //{
+        //    isMovingBackwards = true;
+        //    flipAnimator.SetTrigger("Flip");
 
-        }
-        else if (isMovingBackwards && moveInput.y < 0)
-        {
-            isMovingBackwards = false;
-            flipAnimator.SetTrigger("Flip");
-        }
+        //}
+        //else if (isMovingBackwards && moveInput.y < 0)
+        //{
+        //    isMovingBackwards = false;
+        //    flipAnimator.SetTrigger("Flip");
+        //}
     }
 }
