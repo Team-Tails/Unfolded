@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CollectableStar : MonoBehaviour
@@ -9,6 +10,7 @@ public class CollectableStar : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             GameManager.Instance.StarCount += 1;
+            SoundManager.Instance.PlaySound("StarCollect");
             Destroy(gameObject);
         }
     }
