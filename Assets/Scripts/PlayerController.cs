@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
 
         if (move != Vector3.zero)
         {
-            Debug.Log(move);
             transform.forward = move;
         }
         if (isJumping)
