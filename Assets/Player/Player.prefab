@@ -77,8 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -353080403629206956, guid: f2637a8919d23164c80fc73670984544,
-    type: 3}
+  m_Sprite: {fileID: 1391688244, guid: ba430de9c49e3b24c9134f0e132afa0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 2087454403875502099}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b40f072748a2d449a36362ecee01761, type: 2}
+  m_Controller: {fileID: 9100000, guid: ed7d5ded55bb3e647afb830102661558, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -209,7 +208,7 @@ Animator:
   m_GameObject: {fileID: 5089055795875399418}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed7d5ded55bb3e647afb830102661558, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -398,6 +397,7 @@ MonoBehaviour:
   maxHealth: 3
   deathFadeTimer: 2
   fullFadeWait: 1
+  stateController: {fileID: 0}
   OnHealthChange:
     m_PersistentCalls:
       m_Calls: []
