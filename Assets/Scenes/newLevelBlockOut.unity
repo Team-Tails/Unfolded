@@ -17876,8 +17876,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioFiles:
-  - name: 
-    sound: {fileID: 0}
+  - name: StarCollect
+    sounds:
+    - {fileID: 8300000, guid: cdc535e416d0a2f4589a1cb97825db37, type: 3}
+    - {fileID: 8300000, guid: 60ddb5b2344649749b0ec7099a20aa52, type: 3}
+  - name: PlayerStateChange
+    sounds:
+    - {fileID: 8300000, guid: 746ef1b453b550b429421d2ea5b97a36, type: 3}
+    - {fileID: 8300000, guid: 242d9c8cae76eb446bf79be704ff891d, type: 3}
+  - name: PlayerStep
+    sounds:
+    - {fileID: 8300000, guid: 1b3ee007a01101447909eaf0a24c6ef7, type: 3}
+  - name: BoxMove
+    sounds:
+    - {fileID: 8300000, guid: 1df34aaab9458464d9de45027dd3545a, type: 3}
+    - {fileID: 8300000, guid: 15715cc778fe5ae44a2f87eafd553f76, type: 3}
+    - {fileID: 8300000, guid: b0563b97939dd2d4182ffad7a887621f, type: 3}
+  - name: PlayerHurt
+    sounds:
+    - {fileID: 8300000, guid: 49bad6ec33a45d9439cd47d8cf14c184, type: 3}
+    - {fileID: 8300000, guid: df10f3c973035d74290d78ca2fbebbf1, type: 3}
+  - name: SmallJump
+    sounds:
+    - {fileID: 8300000, guid: fb85810b12def944b9dd36f7f1528bf7, type: 3}
+  - name: BigJump
+    sounds:
+    - {fileID: 8300000, guid: ad5cdd4537de0674fa40cc5ffd6bb479, type: 3}
 --- !u!4 &1266559265
 Transform:
   m_ObjectHideFlags: 0
@@ -17886,8 +17910,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266559262}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.519403, y: 1.8035812, z: 70.605606}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.6, y: 1.8035812, z: 34.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27349,7 +27373,7 @@ PrefabInstance:
     - target: {fileID: 3201090009065985969, guid: 4bb509982435abf49a0260868107cc2d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06719494
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 3201090009065985969, guid: 4bb509982435abf49a0260868107cc2d,
         type: 3}
@@ -34974,6 +34998,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 385245834}
+  - {fileID: 1266559265}
   - {fileID: 1698119494}
   - {fileID: 1700212863}
   - {fileID: 1170082231}
@@ -35003,4 +35028,3 @@ SceneRoots:
   - {fileID: 1576086654}
   - {fileID: 8827230700360871022}
   - {fileID: 1760845544}
-  - {fileID: 1266559265}
