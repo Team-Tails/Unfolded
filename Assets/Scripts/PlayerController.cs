@@ -49,7 +49,10 @@ public class PlayerController : MonoBehaviour
         {
             jumpTimer += Time.deltaTime;
         }
-        playerVelocity.y += GRAVITY * stateController.CurrentState.GravityMultiplier * Time.deltaTime;
+
+        float stateGravity = stateController.CurrentState != null ? stateController.CurrentState.GravityMultiplier : 1;
+
+        playerVelocity.y += GRAVITY * stateGravity * Time.deltaTime;
 
 
         animator.SetBool("onGround", isGrounded);
@@ -124,27 +127,16 @@ public class PlayerController : MonoBehaviour
     }
     void HandleAnimationFlip()
     {
-        //if(!spriteRenderer.flipX && moveInput.x < 0)
-        //{
-        //    spriteRenderer.flipX = true;
-        //    flipAnimator.SetTrigger("Flip");
-        //}
-        //else if (spriteRenderer.flipX && moveInput.x > 0)
-        //{
-        //    spriteRenderer.flipX = false;
-        //    flipAnimator.SetTrigger("Flip");
-        //}
+        spriteRenderer.transform.LookAt(Camera.main.transform.position);
 
-        //if(!isMovingBackwards && moveInput.y > 0)
-        //{
-        //    isMovingBackwards = true;
-        //    flipAnimator.SetTrigger("Flip");
 
-        //}
-        //else if (isMovingBackwards && moveInput.y < 0)
-        //{
-        //    isMovingBackwards = false;
-        //    flipAnimator.SetTrigger("Flip");
-        //}
+        if (!spriteRenderer.flipX && moveInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (spriteRenderer.flipX && moveInput.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 }
