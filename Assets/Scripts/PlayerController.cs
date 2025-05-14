@@ -82,8 +82,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnStateChange(PlayerState state)
+    private void OnStateChange(PlayerState state, PlayerState oldState)
     {
+        if (oldState == stateController.BunnyState)
+        {
+            animator.SetTrigger("exitRabbit");
+        }
+        else if (oldState == stateController.RhinoState)
+        {
+            animator.SetTrigger("exitRhino");
+        }
+        else if (oldState == stateController.PlaneState)
+        {
+            animator.SetTrigger("exitPlane");
+        }
+
         if (state == stateController.BunnyState)
         {
             animator.SetTrigger("changeRabbit");
