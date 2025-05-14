@@ -17902,6 +17902,7 @@ MonoBehaviour:
   - name: BigJump
     sounds:
     - {fileID: 8300000, guid: ad5cdd4537de0674fa40cc5ffd6bb479, type: 3}
+    - {fileID: 8300000, guid: b6b136dec902c3447a5a89aab7f3aff5, type: 3}
 --- !u!4 &1266559265
 Transform:
   m_ObjectHideFlags: 0
