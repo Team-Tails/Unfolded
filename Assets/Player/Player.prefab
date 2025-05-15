@@ -373,7 +373,7 @@ MonoBehaviour:
   maxHealth: 3
   deathFadeTimer: 2
   fullFadeWait: 1
-  stateController: {fileID: 0}
+  stateController: {fileID: 6950161298684918562}
   OnHealthChange:
     m_PersistentCalls:
       m_Calls: []
