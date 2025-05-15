@@ -376,6 +376,8 @@ MonoBehaviour:
   deathFadeTimer: 2
   fullFadeWait: 1
   stateController: {fileID: 6950161298684918562}
+  playerSprite: {fileID: 6171944511431855634}
+  poofParticles: {fileID: 2488908822383222808}
   OnHealthChange:
     m_PersistentCalls:
       m_Calls: []

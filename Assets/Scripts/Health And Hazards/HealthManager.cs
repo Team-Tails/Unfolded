@@ -8,6 +8,8 @@ public class HealthManager : MonoBehaviour
     [SerializeField] public float deathFadeTimer;
     [SerializeField] private float fullFadeWait;
     [SerializeField] private PlayerStateController stateController;
+    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private ParticleSystem poofParticles;
 
     [HideInInspector] public UnityEvent<int, int> OnHealthChange;
     [HideInInspector] public UnityEvent OnDie;
@@ -22,6 +24,9 @@ public class HealthManager : MonoBehaviour
             if (health == 0)
             {
                 StartDeathFade?.Invoke(deathFadeTimer);// Disable player controls when this happens and add the poof for example
+                playerSprite.enabled = false;
+                poofParticles.transform.rotation = Quaternion.Euler(poofParticles.transform.rotation.x, poofParticles.transform.rotation.z, 180);
+                poofParticles.Play();
             }
         }
     }
@@ -36,6 +41,12 @@ public class HealthManager : MonoBehaviour
     public void DamagePlayer(int amount)
     {
         Health -= amount;
+        
+        // If losing health
+        if (amount > 0)
+        {
+
+        }
     }
 
     private IEnumerator DeathFade(float time)
@@ -44,6 +55,8 @@ public class HealthManager : MonoBehaviour
 
         OnDie?.Invoke();
         // go to spawn point
+        playerSprite.enabled = true;
+        poofParticles.transform.rotation = Quaternion.Euler(poofParticles.transform.rotation.x, poofParticles.transform.rotation.y, -180);
     }
 
     private void OnDeath()

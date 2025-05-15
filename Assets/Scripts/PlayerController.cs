@@ -131,15 +131,15 @@ public class PlayerController : MonoBehaviour
     void HandleAnimationFlip()
     {
         spriteRenderer.transform.LookAt(Camera.main.transform.position);
+        spriteRenderer.transform.rotation = Quaternion.Euler(0, spriteRenderer.transform.rotation.y, 0);
 
-
-        if (!spriteRenderer.flipX && moveInput.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else if (spriteRenderer.flipX && moveInput.x > 0)
+        if (spriteRenderer.flipX && moveInput.x < 0)
         {
             spriteRenderer.flipX = false;
+        }
+        else if (!spriteRenderer.flipX && moveInput.x > 0)
+        {
+            spriteRenderer.flipX = true;
         }
     }
 }
