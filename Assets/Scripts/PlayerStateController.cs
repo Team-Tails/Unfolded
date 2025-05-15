@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem.XR;
 
 /// <summary>
 /// Controls the state of the player e.g changing it, and what it is.
 /// </summary>
-public class PlayerStateController: MonoBehaviour 
+public class PlayerStateController: Singleton<PlayerStateController> 
 {
     private PlayerState currentState;
     public PlayerState CurrentState { get => currentState; }
@@ -14,6 +16,8 @@ public class PlayerStateController: MonoBehaviour
     public BunnyState BunnyState { get => bunnyState; set => bunnyState = value; }
     public RhinoState RhinoState { get => rhinoState; set => rhinoState = value; }
     public PlaneState PlaneState { get => planeState; set => planeState = value; }
+
+    [HideInInspector] public UnityEvent<PlayerState> OnStateChange = new UnityEvent<PlayerState>();
 
     private void Start()
     {
@@ -32,6 +36,14 @@ public class PlayerStateController: MonoBehaviour
         }
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlaneLauncher"))
+        {
+            ChangeState(PlaneState);
+        }
+    }
+
     public void ChangeState(PlayerState newState)
     {
         if (currentState == newState) return;
@@ -45,5 +57,7 @@ public class PlayerStateController: MonoBehaviour
 
         currentState = newState;
         currentState.EnterState(prevState);
+
+        OnStateChange?.Invoke(currentState);
     }
 }

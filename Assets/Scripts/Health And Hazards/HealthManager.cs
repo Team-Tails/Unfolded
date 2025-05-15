@@ -7,6 +7,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] public float deathFadeTimer;
     [SerializeField] private float fullFadeWait;
+    [SerializeField] private PlayerStateController stateController;
 
     [HideInInspector] public UnityEvent<int, int> OnHealthChange;
     [HideInInspector] public UnityEvent OnDie;
@@ -48,5 +49,9 @@ public class HealthManager : MonoBehaviour
     private void OnDeath()
     {
         Health = maxHealth;
+        if (stateController.CurrentState == stateController.PlaneState)
+        {
+            stateController.PlaneState.EndPlaneState();
+        } 
     }
 }

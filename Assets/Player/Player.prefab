@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 1628684272381879648}
   - component: {fileID: 6209606462064524793}
   - component: {fileID: 719995677977000952}
+  - component: {fileID: 6950161298684918562}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -234,10 +235,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 3728102235567779260}
   moveSpeed: 10
-  jumpForce: 3
+  baseJumpForce: 0
   animator: {fileID: 8042176006061658187}
   spriteRenderer: {fileID: 6171944511431855634}
   flipAnimator: {fileID: 6966919451966234170}
+  stateController: {fileID: 6950161298684918562}
 --- !u!114 &1628684272381879648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,3 +434,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6950161298684918562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089055795875399418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f49a6b36b108b46bb3e333bc4421ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
