@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private ParticleSystem jumpParticles;
 
     private const float GRAVITY = -9.81f;
     private const float JUMPMULT = -2.0f;
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = Mathf.Sqrt((baseJumpForce + (jumpTimer * 4.3f)) * JUMPMULT * GRAVITY * stateController.CurrentState.JumpHeight);
             isJumping = false;
             jumpTimer = 0.0f;
+            jumpParticles.Play();
         }
     }
 
