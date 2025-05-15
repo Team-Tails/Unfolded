@@ -4605,6 +4605,7 @@ MonoBehaviour:
   menu: {fileID: 1523899804}
   help: {fileID: 1294414355}
   playButton: {fileID: 134000985}
+  playButtonText: {fileID: 1220093181}
 --- !u!1 &1535885763
 GameObject:
   m_ObjectHideFlags: 0

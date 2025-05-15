@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,11 +13,12 @@ public class MainMenu : MonoBehaviour
     Canvas help;
     [SerializeField]
     Button playButton;
+    [SerializeField]
+    TMP_Text playButtonText;
     
 
     public void StartClick()
     {
-        playButton.enabled = false;
         //needs to be the name of the game scene we want to play
         //must also be in the build scenes
         StartCoroutine(LoadScene("newLevelBlockOut")); 
@@ -39,6 +41,8 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadScene(string scene)
     {
+        playButtonText.text = "Loading...";
+        playButton.enabled = false;
         AsyncOperation load = SceneManager.LoadSceneAsync(scene);
 
         while(!load.isDone)
