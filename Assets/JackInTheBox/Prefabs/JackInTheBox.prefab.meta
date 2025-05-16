@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 073476f0975a9224789047f9492ce20b
+timeCreated: 1492805263
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 88659
+  packageName: PBR Dirty Jack-In-The-Box
+  packageVersion: 1.0
+  assetPath: Assets/JackInTheBox/Prefabs/JackInTheBox.prefab
+  uploadId: 175721

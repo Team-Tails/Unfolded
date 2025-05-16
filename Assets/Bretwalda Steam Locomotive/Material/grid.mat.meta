@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 15ba6071809583f4e820ee278c76f144
+timeCreated: 1474642289
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72231
+  packageName: Steam Locomotive
+  packageVersion: 1.0
+  assetPath: Assets/Bretwalda Steam Locomotive/Material/grid.mat
+  uploadId: 140107
