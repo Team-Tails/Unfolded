@@ -5,6 +5,7 @@ public class PlaneState : PlayerState
     protected const float PLANE_JUMP_HEIGHT = 0;
     protected const float PLANE_GRAVITY_MULTIPLIER = 0.2f;
     private const float FLY_TIME = 3f;
+    private const float PLANE_LAUNCH_HEIGHT = 5f;
 
     private float timer = 0;
     private PlayerState previousState;
@@ -18,6 +19,7 @@ public class PlaneState : PlayerState
 
     public override void Update()
     {
+        controller.GetComponent<Rigidbody>().AddForce(Vector3.up * PLANE_LAUNCH_HEIGHT);
         base.Update();
 
         if (controller.CurrentState != this) return;
