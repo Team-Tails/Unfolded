@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] //These SerializeFields mean that these variables are set in editor
+    [SerializeField] 
     private CharacterController characterController;
     [SerializeField]
     private float moveSpeed, jumpForce;
@@ -25,7 +26,13 @@ public class PlayerController : MonoBehaviour
     private const float GRAVITY = -9.81f;
     private const float JUMPMULT = -2.0f;
 
-    // Update is called once per frame
+    public enum PlayerState { Rabbit, Rhino }
+    private PlayerState playerState = PlayerState.Rabbit;
+
+    [Header("UI Icons")]
+    [SerializeField] private Image rabbitIcon;
+    [SerializeField] private Image rhinoIcon;
+
     void Update()
     {
         isGrounded = characterController.isGrounded;
@@ -34,7 +41,7 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new(moveInput.x, 0, moveInput.y);  
+        Vector3 move = new(moveInput.x, 0, moveInput.y);
         move.Normalize();
 
         if (move != Vector3.zero)
@@ -47,18 +54,16 @@ public class PlayerController : MonoBehaviour
         }
         playerVelocity.y += GRAVITY * Time.deltaTime;
 
-
         animator.SetBool("onGround", isGrounded);
 
         HandleAnimationFlip();
-        
+
         animator.SetBool("movingBackwards", isMovingBackwards);
-       
+
         Vector3 finalMovement = (move * moveSpeed) + (playerVelocity.y * Vector3.up);
         characterController.Move(finalMovement * Time.deltaTime);
 
         animator.SetFloat("moveSpeed", characterController.velocity.magnitude);
-
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -72,7 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = true;
         }
-        if ((context.performed || context.canceled) && isGrounded )
+        if ((context.performed || context.canceled) && isGrounded)
         {
             playerVelocity.y = Mathf.Sqrt((jumpForce + (jumpTimer * 4.3f)) * JUMPMULT * GRAVITY);
             isJumping = false;
@@ -82,18 +87,48 @@ public class PlayerController : MonoBehaviour
 
     public void OnRabbitChange(InputAction.CallbackContext context)
     {
-        //switch to rabbit and make sure the player isnt already a rabbit
-        //playerstate = PlayerState.Rabbit;
+        if (context.performed && playerState != PlayerState.Rabbit)
+        {
+            playerState = PlayerState.Rabbit;
+            UpdateIconOpacity();
+        }
     }
 
     public void OnRhinoChange(InputAction.CallbackContext context)
     {
-        //switch to rhino and make sure the player isnt already a rhino
-        //playerstate = PlayerState.Rhino;
+        if (context.performed && playerState != PlayerState.Rhino)
+        {
+            playerState = PlayerState.Rhino;
+            UpdateIconOpacity();
+        }
     }
+
+    private void UpdateIconOpacity()
+    {
+        if (rabbitIcon != null && rhinoIcon != null)
+        {
+            Color rabbitColor = rabbitIcon.color;
+            Color rhinoColor = rhinoIcon.color;
+
+            if (playerState == PlayerState.Rabbit)
+            {
+                rabbitColor.a = 1f;
+                rhinoColor.a = 0.25f;
+            }
+            else
+            {
+                rabbitColor.a = 0.25f;
+                rhinoColor.a = 1f;
+            }
+
+            rabbitIcon.color = rabbitColor;
+            rhinoIcon.color = rhinoColor;
+        }
+    }
+
     void HandleAnimationFlip()
     {
-        if(!spriteRenderer.flipX && moveInput.x < 0)
+        if (!spriteRenderer.flipX && moveInput.x < 0)
         {
             spriteRenderer.flipX = true;
             flipAnimator.SetTrigger("Flip");
@@ -104,11 +139,10 @@ public class PlayerController : MonoBehaviour
             flipAnimator.SetTrigger("Flip");
         }
 
-        if(!isMovingBackwards && moveInput.y > 0)
+        if (!isMovingBackwards && moveInput.y > 0)
         {
             isMovingBackwards = true;
             flipAnimator.SetTrigger("Flip");
-
         }
         else if (isMovingBackwards && moveInput.y < 0)
         {
