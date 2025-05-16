@@ -21,7 +21,7 @@ public class PlayerStateController: Singleton<PlayerStateController>
 
     private void Start()
     {
-        ChangeState(planeState);
+        ChangeState(bunnyState);
 
         bunnyState.Start(this);
         rhinoState.Start(this);
@@ -36,13 +36,12 @@ public class PlayerStateController: Singleton<PlayerStateController>
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        print(collision.gameObject.name);
-        if (collision.gameObject.CompareTag("PlaneLauncher"))
+        if (other.gameObject.CompareTag("PlaneLauncher"))
         {
+            GetComponent<PlayerController>().OnLaunch();
             ChangeState(PlaneState);
-            print("has collided");
         }
     }
 

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] //These SerializeFields mean that these variables are set in editor
     private CharacterController characterController;
     [SerializeField]
-    private float moveSpeed, baseJumpForce;
+    private float moveSpeed, baseJumpForce, launchHeight;
     private Vector2 moveInput;
     private Vector3 playerVelocity;
     private bool isGrounded;
@@ -80,6 +80,11 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
             jumpTimer = 0.0f;
         }
+    }
+
+    public void OnLaunch()
+    {
+        playerVelocity.y = launchHeight;
     }
 
     public void OnRabbitChange(InputAction.CallbackContext context)

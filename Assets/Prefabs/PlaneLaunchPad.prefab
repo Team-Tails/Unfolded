@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5738026419228278472}
   - component: {fileID: 7868326980410086684}
   - component: {fileID: 3451963333898196873}
+  - component: {fileID: 109555932109960604}
   m_Layer: 0
   m_Name: PlaneLaunchPad
   m_TagString: PlaneLauncher
@@ -189,9 +190,30 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13, y: 0.2, z: 0.037000287}
+  m_Center: {x: -0.0722105, y: 0.10499996, z: 0.021}
+--- !u!65 &109555932109960604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770288254257433744}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.14442138, y: 0.21000004, z: 0.037000287}
-  m_Center: {x: -0.0722105, y: 0.10499996, z: 0.018500185}
+  m_Size: {x: 0.1444214, y: 0.21, z: 0.037000287}
+  m_Center: {x: -0.0722105, y: 0.10499996, z: 0.01850018}
