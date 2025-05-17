@@ -26237,6 +26237,11 @@ PrefabInstance:
       propertyPath: launchFrameCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6308382706750100949, guid: ef35c0ba0333b7d4c836e05714776caa,
+        type: 3}
+      propertyPath: flyingForwardSpeed
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

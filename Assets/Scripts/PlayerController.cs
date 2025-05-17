@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] //These SerializeFields mean that these variables are set in editor
     private CharacterController characterController;
     [SerializeField]
-    private float moveSpeed, baseJumpForce, launchHeight;
+    private float moveSpeed, baseJumpForce, launchHeight, flyingForwardSpeed;
+    public bool isFlying;
     private Vector2 moveInput;
     private Vector3 playerVelocity;
     private bool isGrounded;
@@ -39,6 +40,10 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new(moveInput.x, 0, moveInput.y);  
         move.Normalize();
 
+        if (isFlying)
+        {
+            move += Vector3.forward * flyingForwardSpeed;
+        }
         if (move != Vector3.zero)
         {
             transform.forward = move;
@@ -85,6 +90,7 @@ public class PlayerController : MonoBehaviour
     public void OnLaunch()
     {
         playerVelocity.y = launchHeight;
+        isFlying = true;
     }
 
     public void OnRabbitChange(InputAction.CallbackContext context)
