@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c9fa32fdb1f2f874b93d486a8a590411
+timeCreated: 1474642566
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72231
+  packageName: Steam Locomotive
+  packageVersion: 1.0
+  assetPath: Assets/Bretwalda Steam Locomotive/Prefab/steam locomotive.prefab
+  uploadId: 140107
