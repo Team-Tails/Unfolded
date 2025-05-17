@@ -8,10 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] //These SerializeFields mean that these variables are set in editor
     private CharacterController characterController;
     [SerializeField]
-    private float moveSpeed, baseJumpForce, launchHeight, flyingForwardSpeed;
+    private float moveSpeed, baseJumpForce, launchHeight;
     public bool isFlying;
     private Vector2 moveInput;
-    private Vector3 playerVelocity;
+    private Vector3 playerVelocity, lastFramesVelocity = Vector3.zero;
     private bool isGrounded;
     private bool isJumping;
     private float jumpTimer = 0.0f;
@@ -40,10 +40,6 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new(moveInput.x, 0, moveInput.y);  
         move.Normalize();
 
-        if (isFlying)
-        {
-            move += Vector3.forward * flyingForwardSpeed;
-        }
         if (move != Vector3.zero)
         {
             transform.forward = move;
@@ -60,8 +56,20 @@ public class PlayerController : MonoBehaviour
         HandleAnimationFlip();
         
         animator.SetBool("movingBackwards", isMovingBackwards);
-       
-        Vector3 finalMovement = (move * moveSpeed) + (playerVelocity.y * Vector3.up);
+
+        Vector3 horizontalMovement = move * moveSpeed;
+
+        // make plane constantly move forward
+        if (move == Vector3.zero && isFlying)
+        {
+            horizontalMovement = lastFramesVelocity;
+        }
+        else
+        {
+            lastFramesVelocity = move * moveSpeed;
+        }
+
+        Vector3 finalMovement = horizontalMovement + (playerVelocity.y * Vector3.up);
         characterController.Move(finalMovement * Time.deltaTime);
 
         animator.SetFloat("moveSpeed", characterController.velocity.magnitude);
