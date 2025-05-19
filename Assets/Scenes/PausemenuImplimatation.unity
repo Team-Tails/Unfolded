@@ -11421,7 +11421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &775716115
 Transform:
   m_ObjectHideFlags: 0
@@ -14726,7 +14726,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 43f0d153a751a6748a7ed5f0cdf4a471, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -17179,6 +17179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause: {fileID: 1043388760}
   help: {fileID: 1907608079}
+  controller: {fileID: 1295050268}
+  pauseParent: {fileID: 775716114}
 --- !u!1001 &1064635201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21822,7 +21824,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b4fcd0e3439aa3445b1b236919e109ed, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
