@@ -18,6 +18,8 @@ public class CameraRotationArea : MonoBehaviour
     private float thresholdForCameraLockToAngle;
     [SerializeField] private float speed;
 
+
+    private CameraController camControl;
     private float goalAngle;
     private float currentYRotation;
     private float direction;
@@ -27,32 +29,40 @@ public class CameraRotationArea : MonoBehaviour
         currentYRotation = cam.transform.rotation.eulerAngles.y;
         direction = speed;
         goalAngle = goalCamAngleOutArea;
+        camControl = cam.GetComponent<CameraController>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         goalAngle = goalCamAngleInArea;
         direction = speed; //rotate positively (right)
+        if (!camControl.IsRotating) camControl.IsRotating = true;
     }
 
     void OnTriggerExit(Collider other)
     {
         goalAngle = goalCamAngleOutArea;
         direction = -speed; //rotate negatively (left)
+        if (!camControl.IsRotating) camControl.IsRotating = true;
     }
 
-    void Update()
-    {   
+    void LateUpdate()
+    {
         // not within the threshold of the goal angle
-        if ((goalAngle == goalCamAngleInArea && currentYRotation <= goalCamAngleInArea - thresholdForCameraLockToAngle) ||
-        (goalAngle == goalCamAngleOutArea && currentYRotation >= goalCamAngleOutArea + thresholdForCameraLockToAngle))
+        if ((goalAngle == goalCamAngleInArea && currentYRotation < goalCamAngleInArea - thresholdForCameraLockToAngle) ||
+        (goalAngle == goalCamAngleOutArea && currentYRotation > goalCamAngleOutArea + thresholdForCameraLockToAngle))
         {
-            cam.transform.RotateAround(player.transform.position, Vector3.up, direction * Time.deltaTime);
+            //player.transform.Rotate(Vector3.up * direction * Time.deltaTime);
+            camControl.RotateAroundPlayer(direction * Time.deltaTime);
             currentYRotation = cam.transform.rotation.eulerAngles.y;
         }
         else if (currentYRotation != goalAngle) //within threshold, but not at goal
         {
-            cam.transform.rotation = Quaternion.Euler(cam.transform.rotation.x, goalAngle, cam.transform.rotation.z);
+            camControl.SetGlobalYRotation(goalAngle);
+        }
+        else //is at goal
+        {
+            if (camControl.IsRotating) camControl.IsRotating = false;
         }
     }
 }

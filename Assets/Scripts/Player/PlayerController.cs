@@ -93,27 +93,27 @@ public class PlayerController : MonoBehaviour
     }
     void HandleAnimationFlip()
     {
-        if(!spriteRenderer.flipX && moveInput.x < 0)
-        {
-            spriteRenderer.flipX = true;
-            flipAnimator.SetTrigger("Flip");
-        }
-        else if (spriteRenderer.flipX && moveInput.x > 0)
-        {
-            spriteRenderer.flipX = false;
-            flipAnimator.SetTrigger("Flip");
-        }
+        // if(!spriteRenderer.flipX && moveInput.x < 0)
+        // {
+        //     spriteRenderer.flipX = true;
+        //     flipAnimator.SetTrigger("Flip");
+        // }
+        // else if (spriteRenderer.flipX && moveInput.x > 0)
+        // {
+        //     spriteRenderer.flipX = false;
+        //     flipAnimator.SetTrigger("Flip");
+        // }
 
-        if(!isMovingBackwards && moveInput.y > 0)
-        {
-            isMovingBackwards = true;
-            flipAnimator.SetTrigger("Flip");
+        // if(!isMovingBackwards && moveInput.y > 0)
+        // {
+        //     isMovingBackwards = true;
+        //     flipAnimator.SetTrigger("Flip");
 
-        }
-        else if (isMovingBackwards && moveInput.y < 0)
-        {
-            isMovingBackwards = false;
-            flipAnimator.SetTrigger("Flip");
-        }
+        // }
+        // else if (isMovingBackwards && moveInput.y < 0)
+        // {
+        //     isMovingBackwards = false;
+        //     flipAnimator.SetTrigger("Flip");
+        // }
     }
 }
