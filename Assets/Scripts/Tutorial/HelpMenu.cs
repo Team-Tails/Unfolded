@@ -17,8 +17,8 @@ public class HelpMenu : MonoBehaviour
 
     public void Return()
     {
-        menu.enabled = !menu.enabled;
-        help.enabled = !help.enabled;
+        menu.enabled = true;
+        help.enabled = false;
     }
 
     public void PageButton()

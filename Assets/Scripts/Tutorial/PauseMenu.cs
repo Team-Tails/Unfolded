@@ -5,35 +5,39 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class MainMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
-    Canvas menu;
+    Canvas pause;
     [SerializeField]
     Canvas help;
     [SerializeField]
-    Button playButton;
+    PlayerController controller;
     [SerializeField]
-    TMP_Text playButtonText;
-    
+    GameObject pauseParent;
 
-    public void StartClick()
+    public void ClickResume()
     {
-        //needs to be the name of the game scene we want to play
-        //must also be in the build scenes
-        StartCoroutine(LoadScene("newLevelBlockOut")); 
+        controller.enabled = true;
+        pauseParent.SetActive(false);
     }
 
-    public void HelpClick()
+    public void ClickHelp()
     {
-        menu.enabled = false;
+        pause.enabled = false;
         help.enabled = true;
     }
-    
-    public void ExitClick()
+
+    public void ClickMainMenu()
+    {
+        //needs to be the name of the main menu
+        //must also be in the build scenes
+        StartCoroutine(LoadScene("MainMenu")); 
+    }
+    public void ClickExit()
     {
         #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
+        EditorApplication.isPlaying = false;
         #else
             Application.Quit();
         #endif
@@ -41,8 +45,6 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadScene(string scene)
     {
-        playButtonText.text = "Loading...";
-        playButton.enabled = false;
         AsyncOperation load = SceneManager.LoadSceneAsync(scene);
 
         while(!load.isDone)
