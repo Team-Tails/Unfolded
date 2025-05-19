@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private CharacterController characterController;
     [SerializeField]
     private float moveSpeed, jumpForce;
@@ -25,13 +24,6 @@ public class PlayerController : MonoBehaviour
     private Animator flipAnimator;
     private const float GRAVITY = -9.81f;
     private const float JUMPMULT = -2.0f;
-
-    public enum PlayerState { Rabbit, Rhino }
-    private PlayerState playerState = PlayerState.Rabbit;
-
-    [Header("UI Icons")]
-    [SerializeField] private Image rabbitIcon;
-    [SerializeField] private Image rhinoIcon;
 
     void Update()
     {
@@ -87,43 +79,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnRabbitChange(InputAction.CallbackContext context)
     {
-        if (context.performed && playerState != PlayerState.Rabbit)
-        {
-            playerState = PlayerState.Rabbit;
-            UpdateIconOpacity();
-        }
+
     }
 
     public void OnRhinoChange(InputAction.CallbackContext context)
     {
-        if (context.performed && playerState != PlayerState.Rhino)
-        {
-            playerState = PlayerState.Rhino;
-            UpdateIconOpacity();
-        }
-    }
 
-    private void UpdateIconOpacity()
-    {
-        if (rabbitIcon != null && rhinoIcon != null)
-        {
-            Color rabbitColor = rabbitIcon.color;
-            Color rhinoColor = rhinoIcon.color;
-
-            if (playerState == PlayerState.Rabbit)
-            {
-                rabbitColor.a = 1f;
-                rhinoColor.a = 0.25f;
-            }
-            else
-            {
-                rabbitColor.a = 0.25f;
-                rhinoColor.a = 1f;
-            }
-
-            rabbitIcon.color = rabbitColor;
-            rhinoIcon.color = rhinoColor;
-        }
     }
 
     void HandleAnimationFlip()
