@@ -46,7 +46,7 @@ public class HealthManager : MonoBehaviour
         // If losing health
         if (amount > 0)
         {
-            StartCoroutine(HealthFlash());
+            StartCoroutine(PlayerDamageFlash());
         }
     }
 
@@ -69,7 +69,7 @@ public class HealthManager : MonoBehaviour
     }
 
     // Flashes the player for when damage is taken.
-    private IEnumerator HealthFlash()
+    private IEnumerator PlayerDamageFlash()
     {
         const float timeToWait = 0.1f;
         float startTime = Time.time;
