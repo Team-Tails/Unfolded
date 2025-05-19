@@ -79,7 +79,6 @@ public class HealthManager : MonoBehaviour
             float done = Mathf.Clamp(Time.time - startTime, 0.01f, timeToWait) / timeToWait;
             float lerp = Mathf.Lerp(1, 0.5f, done);            
             playerSprite.color = new Color(1.0f, lerp, lerp);
-            //Debug.Log(playerSprite.color);
             yield return null;
         } while (Time.time - startTime < timeToWait);
 
@@ -90,7 +89,6 @@ public class HealthManager : MonoBehaviour
             float done = Mathf.Clamp(Time.time - startTime, 0.01f, timeToWait) / timeToWait;
             float lerp = Mathf.Lerp(0.5f, 1, done);
             playerSprite.color = new Color(1.0f, lerp, lerp);
-            //Debug.Log(playerSprite.color);
             yield return null;
         } while (Time.time - startTime < timeToWait);
     }
