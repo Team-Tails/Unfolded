@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.XR;
 
 /// <summary>
@@ -17,7 +18,8 @@ public class PlayerStateController: Singleton<PlayerStateController>
     public RhinoState RhinoState { get => rhinoState; set => rhinoState = value; }
     public PlaneState PlaneState { get => planeState; set => planeState = value; }
 
-    [HideInInspector] public UnityEvent<PlayerState> OnStateChange = new UnityEvent<PlayerState>();
+    // First state is new state, second state is old state
+    [HideInInspector] public UnityEvent<PlayerState, PlayerState> OnStateChange = new UnityEvent<PlayerState, PlayerState>();
 
     private void Start()
     {
@@ -58,6 +60,6 @@ public class PlayerStateController: Singleton<PlayerStateController>
         currentState = newState;
         currentState.EnterState(prevState);
 
-        OnStateChange?.Invoke(currentState);
+        OnStateChange?.Invoke(currentState, prevState);
     }
 }
