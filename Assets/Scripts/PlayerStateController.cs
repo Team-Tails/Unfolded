@@ -38,10 +38,11 @@ public class PlayerStateController: Singleton<PlayerStateController>
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("PlaneLauncher"))
+        if (other.gameObject.CompareTag("PlaneLauncher"))
         {
+            GetComponent<PlayerController>().OnLaunch();
             ChangeState(PlaneState);
         }
     }
