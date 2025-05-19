@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        stateController.OnStateChange.AddListener(OnStateChange);
+        stateController.OnStateChange.AddListener(HandleStateChange);
     }
 
     // Update is called once per frame
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnStateChange(PlayerState state, PlayerState oldState)
+    private void HandleStateChange(PlayerState state, PlayerState oldState)
     {
         if (oldState == stateController.BunnyState)
         {
