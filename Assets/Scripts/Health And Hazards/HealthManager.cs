@@ -74,6 +74,7 @@ public class HealthManager : MonoBehaviour
         const float timeToWait = 0.1f;
         float startTime = Time.time;
 
+        // This flashes the player once, the for loop makes it flash in and out, the do is to wait frames between lerps
         for (int i = 0; i < 2; i++) 
         {
             do
