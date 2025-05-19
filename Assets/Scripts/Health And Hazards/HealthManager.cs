@@ -74,22 +74,17 @@ public class HealthManager : MonoBehaviour
         const float timeToWait = 0.1f;
         float startTime = Time.time;
 
-        do
+        for (int i = 0; i < 2; i++) 
         {
-            float done = Mathf.Clamp(Time.time - startTime, 0.01f, timeToWait) / timeToWait;
-            float lerp = Mathf.Lerp(1, 0.5f, done);            
-            playerSprite.color = new Color(1.0f, lerp, lerp);
-            yield return null;
-        } while (Time.time - startTime < timeToWait);
+            do
+            {
+                float done = Mathf.Clamp(Time.time - startTime, 0.01f, timeToWait) / timeToWait;
+                float lerp = Mathf.Lerp((2 - i) / 2, (i + 1) / 2, done);            
+                playerSprite.color = new Color(1.0f, lerp, lerp);
+                yield return null;
+            } while (Time.time - startTime < timeToWait);
 
-        startTime = Time.time;
-
-        do
-        {
-            float done = Mathf.Clamp(Time.time - startTime, 0.01f, timeToWait) / timeToWait;
-            float lerp = Mathf.Lerp(0.5f, 1, done);
-            playerSprite.color = new Color(1.0f, lerp, lerp);
-            yield return null;
-        } while (Time.time - startTime < timeToWait);
+            startTime = Time.time;
+        }
     }
 }
