@@ -12,6 +12,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private ParticleSystem poofParticles;
     [SerializeField] private ParticleSystem respawnParticles;
+    [SerializeField] private PlayerController controller;
 
     [HideInInspector] public UnityEvent<int, int> OnHealthChange;
     [HideInInspector] public UnityEvent OnDie;
@@ -25,6 +26,7 @@ public class HealthManager : MonoBehaviour
 
             if (health == 0)
             {
+                controller.enabled = false;
                 StartDeathFade?.Invoke(deathFadeTimer);// Disable player controls when this happens and add the poof for example
                 playerSprite.enabled = false;
                 respawnParticles.Play();
@@ -57,6 +59,7 @@ public class HealthManager : MonoBehaviour
         OnDie?.Invoke();
         // go to spawn point
         playerSprite.enabled = true;
+        controller.enabled = true;
     }
 
     private void OnDeath()
@@ -74,18 +77,24 @@ public class HealthManager : MonoBehaviour
         const float timeToWait = 0.1f;
         float startTime = Time.time;
 
-        // This flashes the player once, the for loop makes it flash in and out, the do is to wait frames between lerps
-        for (int i = 0; i < 2; i++) 
+        do
         {
-            do
-            {
-                float done = Mathf.Clamp(Time.time - startTime, 0.01f, timeToWait) / timeToWait;
-                float lerp = Mathf.Lerp((2 - i) / 2, (i + 1) / 2, done);            
-                playerSprite.color = new Color(1.0f, lerp, lerp);
-                yield return null;
-            } while (Time.time - startTime < timeToWait);
+            float done = Mathf.Clamp(Time.time - startTime, 0.01f, timeToWait) / timeToWait;
+            float lerp = Mathf.Lerp(1, 0.5f, done);
+            playerSprite.color = new Color(1.0f, lerp, lerp);
+            yield return null;
+        } while (Time.time - startTime < timeToWait);
 
-            startTime = Time.time;
-        }
+        startTime = Time.time;
+
+        do
+        {
+            float done = Mathf.Clamp(Time.time - startTime, 0.01f, timeToWait) / timeToWait;
+            float lerp = Mathf.Lerp(0.5f, 1, done);
+            playerSprite.color = new Color(1.0f, lerp, lerp);
+            yield return null;
+        } while (Time.time - startTime < timeToWait);
+        
+        playerSprite.color = new Color(1.0f, playerSprite.color.b, playerSprite.color.g);
     }
 }
