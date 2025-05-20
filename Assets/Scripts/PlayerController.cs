@@ -155,6 +155,7 @@ public class PlayerController : MonoBehaviour
         // Automatically checks if the state is already rabbit, and then does nothing.
         stateController.ChangeState(stateController.BunnyState);
         rb.isKinematic = true;
+        if (isFlying) isFlying = false;
     }
 
     public void OnRhinoChange(InputAction.CallbackContext context)
@@ -162,6 +163,7 @@ public class PlayerController : MonoBehaviour
         // Automatically checks if the state is already rhino, and then does nothing.
         stateController.ChangeState(stateController.RhinoState);
         rb.isKinematic = false;
+        if (isFlying) isFlying = false;
     }
 
     void HandleAnimationFlip()
