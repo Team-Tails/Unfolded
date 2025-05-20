@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] //These SerializeFields mean that these variables are set in editor
+    [SerializeField]
     private CharacterController characterController;
     [SerializeField]
     private float moveSpeed, baseJumpForce, launchHeight;
@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         stateController.OnStateChange.AddListener(HandleStateChange);
     }
 
-    // Update is called once per frame
     void Update()
     {
         isGrounded = characterController.isGrounded;
@@ -41,7 +40,7 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new(moveInput.x, 0, moveInput.y);  
+        Vector3 move = new(moveInput.x, 0, moveInput.y);
         move.Normalize();
 
         if (move != Vector3.zero)
@@ -56,7 +55,6 @@ public class PlayerController : MonoBehaviour
         float stateGravity = stateController.CurrentState != null ? stateController.CurrentState.GravityMultiplier : 1;
 
         playerVelocity.y += GRAVITY * stateGravity * Time.deltaTime;
-
 
         animator.SetBool("onGround", isGrounded);
 
@@ -92,7 +90,7 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = true;
         }
-        if ((context.performed || context.canceled) && isGrounded )
+        if ((context.performed || context.canceled) && isGrounded)
         {
             playerVelocity.y = Mathf.Sqrt((baseJumpForce + (jumpTimer * 4.3f)) * JUMPMULT * GRAVITY * stateController.CurrentState.JumpHeight);
             isJumping = false;
@@ -147,6 +145,7 @@ public class PlayerController : MonoBehaviour
         // Automatically checks if the state is already rhino, and then does nothing.
         stateController.ChangeState(stateController.RhinoState);
     }
+
     void HandleAnimationFlip()
     {
         spriteRenderer.transform.LookAt(Camera.main.transform.position);
