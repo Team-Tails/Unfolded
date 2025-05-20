@@ -216,7 +216,7 @@ MonoBehaviour:
   characterController: {fileID: 3728102235567779260}
   moveSpeed: 10
   baseJumpForce: 0
-  launchHeight: 0
+  launchHeight: 7
   isFlying: 0
   animator: {fileID: 8042176006061658187}
   spriteRenderer: {fileID: 6171944511431855634}

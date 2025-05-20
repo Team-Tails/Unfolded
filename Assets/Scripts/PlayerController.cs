@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     [SerializeField]
     private float moveSpeed, baseJumpForce, launchHeight;
-    public bool isFlying;
+    [HideInInspector] public bool isFlying;
     private Vector2 moveInput;
     private Vector3 playerVelocity, lastFramesVelocity = Vector3.zero;
     private bool isGrounded;
