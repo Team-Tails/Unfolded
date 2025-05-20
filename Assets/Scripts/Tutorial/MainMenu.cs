@@ -43,6 +43,8 @@ public class MainMenu : MonoBehaviour
     {
         playButtonText.text = "Loading...";
         playButton.enabled = false;
+        yield return null;
+
         AsyncOperation load = SceneManager.LoadSceneAsync(scene);
 
         while(!load.isDone)
