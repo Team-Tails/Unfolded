@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1b4f7256cb3b85e42b35092503840cf0
+timeCreated: 1474641658
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72231
+  packageName: Steam Locomotive
+  packageVersion: 1.0
+  assetPath: Assets/Bretwalda Steam Locomotive/Material/steam locomotive.mat
+  uploadId: 140107

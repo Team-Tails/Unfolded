@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d5c28e9edbfd39940b8546743c206c70
+timeCreated: 1492805162
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 88659
+  packageName: PBR Dirty Jack-In-The-Box
+  packageVersion: 1.0
+  assetPath: Assets/JackInTheBox/Materials/pCube3Mat.mat
+  uploadId: 175721
