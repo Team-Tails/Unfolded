@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem.XR;
 
 /// <summary>
 /// Controls the state of the player e.g changing it, and what it is.
 /// </summary>
-public class PlayerStateController : MonoBehaviour
+public class PlayerStateController: Singleton<PlayerStateController> 
 {
     private PlayerState currentState;
     public PlayerState CurrentState { get => currentState; }
@@ -19,6 +22,9 @@ public class PlayerStateController : MonoBehaviour
     [Header("UI Icons")]
     [SerializeField] private Image rabbitIcon;
     [SerializeField] private Image rhinoIcon;
+    
+    // First state is new state, second state is old state
+    [HideInInspector] public UnityEvent<PlayerState, PlayerState> OnStateChange = new UnityEvent<PlayerState, PlayerState>();
 
     private void Start()
     {
@@ -39,6 +45,15 @@ public class PlayerStateController : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PlaneLauncher"))
+        {
+            GetComponent<PlayerController>().OnLaunch();
+            ChangeState(PlaneState);
+        }
+    }
+
     public void ChangeState(PlayerState newState)
     {
         if (currentState == newState) return;
@@ -52,6 +67,8 @@ public class PlayerStateController : MonoBehaviour
 
         currentState = newState;
         currentState.EnterState(prevState);
+        
+        OnStateChange?.Invoke(currentState, prevState);
 
         UpdateIconOpacity(currentState);
     }
