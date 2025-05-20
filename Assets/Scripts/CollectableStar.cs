@@ -1,10 +1,9 @@
+using System;
+using UnityEngine;
+
 /*
 * got help from here https://www.youtube.com/watch?v=FjJJ_I9zqJo for the rotation
 */
-
-using UnityEngine;
-
-
 
 public class CollectableStar : MonoBehaviour
 {
@@ -21,6 +20,7 @@ public class CollectableStar : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.StarCount += 1;
+            SoundManager.Instance.PlaySound("StarCollect");
             Destroy(gameObject);
         }
     }
