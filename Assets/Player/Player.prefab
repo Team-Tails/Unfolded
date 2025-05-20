@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 6209606462064524793}
   - component: {fileID: 719995677977000952}
   - component: {fileID: 6950161298684918562}
+  - component: {fileID: 6506954026100447702}
+  - component: {fileID: 2698102478276364064}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -214,6 +216,8 @@ MonoBehaviour:
   characterController: {fileID: 3728102235567779260}
   moveSpeed: 10
   baseJumpForce: 0
+  launchHeight: 0
+  isFlying: 0
   animator: {fileID: 8042176006061658187}
   spriteRenderer: {fileID: 6171944511431855634}
   jumpParticles: {fileID: 2488908822383222808}
@@ -321,7 +325,19 @@ MonoBehaviour:
     m_ActionId: a76083d4-cad4-4ded-959f-267cd71ee4c2
     m_ActionName: Player/Jump
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2698102478276364064}
+        m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e820becf-2582-461e-8865-92cfe12049f8
     m_ActionName: Player/Pause
   - m_PersistentCalls:
@@ -380,6 +396,7 @@ MonoBehaviour:
   playerSprite: {fileID: 6171944511431855634}
   poofParticles: {fileID: 2488908822383222808}
   respawnParticles: {fileID: 596420061804135501}
+  controller: {fileID: 6308382706750100949}
   OnHealthChange:
     m_PersistentCalls:
       m_Calls: []
@@ -414,7 +431,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6950161298684918562
 MonoBehaviour:
@@ -428,9 +445,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f49a6b36b108b46bb3e333bc4421ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rabbitIcon: {fileID: 0}
+  rhinoIcon: {fileID: 0}
   OnStateChange:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6506954026100447702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089055795875399418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf249cf4a45d3c44a5ce343d00dfa54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starDisplay: {fileID: 0}
+--- !u!114 &2698102478276364064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089055795875399418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0141784902d5ca6468faaa23f612bd09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 6308382706750100949}
+  pauseParent: {fileID: 0}
 --- !u!1 &5686321683194406391
 GameObject:
   m_ObjectHideFlags: 0

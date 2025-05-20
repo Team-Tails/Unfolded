@@ -3,11 +3,12 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.XR;
+using System.Data.Common;
 
 /// <summary>
 /// Controls the state of the player e.g changing it, and what it is.
 /// </summary>
-public class PlayerStateController: Singleton<PlayerStateController> 
+public class PlayerStateController : Singleton<PlayerStateController>
 {
     private PlayerState currentState;
     public PlayerState CurrentState { get => currentState; }

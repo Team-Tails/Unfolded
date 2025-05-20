@@ -26,10 +26,12 @@ public class PlayerController : MonoBehaviour
     private const float JUMPMULT = -2.0f;
     [SerializeField]
     private PlayerStateController stateController;
+    private Rigidbody rb;
 
     private void Start()
     {
         stateController.OnStateChange.AddListener(HandleStateChange);
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -130,6 +132,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnLaunch()
     {
+        rb.isKinematic = false;
         playerVelocity.y = launchHeight;
         isFlying = true;
     }
@@ -138,12 +141,14 @@ public class PlayerController : MonoBehaviour
     {
         // Automatically checks if the state is already rabbit, and then does nothing.
         stateController.ChangeState(stateController.BunnyState);
+        rb.isKinematic = true;
     }
 
     public void OnRhinoChange(InputAction.CallbackContext context)
     {
         // Automatically checks if the state is already rhino, and then does nothing.
         stateController.ChangeState(stateController.RhinoState);
+        rb.isKinematic = false;
     }
 
     void HandleAnimationFlip()

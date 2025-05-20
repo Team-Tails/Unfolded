@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 580fc7b5676c6774cbb712d62a6e8dff
   - enabled: 1
-    path: Assets/Scenes/SoundMananger.unity
-    guid: 389efdfc8e23c53468982e81cc4e170a
+    path: Assets/Scenes/newLevelBlockOut.unity
+    guid: 467736688c0e79a4f9f1106250d1ae95
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 48cf6b9278c75b14babeb53560e1dc15,
       type: 2}

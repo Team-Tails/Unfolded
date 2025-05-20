@@ -166,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0c99fd8773f44d4419783835359ad994,
         type: 3}
       propertyPath: m_Name
-      value: InteractiveBlock2
+      value: InteractiveBlock
       objectReference: {fileID: 0}
     - target: {fileID: 1129496810705857465, guid: 0c99fd8773f44d4419783835359ad994,
         type: 3}
@@ -275,8 +275,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7184133930187496352}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 2
+  m_Mass: 2.5
+  m_Drag: 10
   m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -289,7 +289,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 116
