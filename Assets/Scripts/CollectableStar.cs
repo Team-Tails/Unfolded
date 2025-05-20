@@ -20,7 +20,7 @@ public class CollectableStar : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.StarCount += 1;
-            SoundManager.Instance.PlaySound("StarCollect");
+            SoundManager.Instance.PlaySound("StarCollect", 0.5f);
             Destroy(gameObject);
         }
     }

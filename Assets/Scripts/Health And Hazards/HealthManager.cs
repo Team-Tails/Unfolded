@@ -48,6 +48,7 @@ public class HealthManager : MonoBehaviour
         // If losing health
         if (amount > 0)
         {
+            SoundManager.Instance.PlaySound("PlayerHurt");
             StartCoroutine(PlayerDamageFlash());
         }
     }

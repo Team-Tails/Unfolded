@@ -20,6 +20,7 @@ public class InteractiveBlock : MonoBehaviour
         moveDirection.Normalize();
 
         isColliding = true;
+        SoundManager.Instance.PlaySound("BoxMove");
     }
 
     private void OnTriggerExit(Collider other)

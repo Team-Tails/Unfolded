@@ -12,8 +12,8 @@ public class SoundManager : MonoBehaviour
 
     private System.Random rand = new System.Random();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Awake is called when scene loads
+    void Awake()
     {
         if(Instance != null)
         {   

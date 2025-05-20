@@ -21,12 +21,19 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private ParticleSystem jumpParticles;
+    [SerializeField] private float minWalkAudioDelay;
+    [SerializeField] private float maxWalkAudioDelay;
 
     private const float GRAVITY = -9.81f;
     private const float JUMPMULT = -2.0f;
     [SerializeField]
     private PlayerStateController stateController;
     private Rigidbody rb;
+    private Coroutine walkDelayCoroutine;
+
+
+
+
 
     private void Start()
     {
@@ -47,6 +54,10 @@ public class PlayerController : MonoBehaviour
 
         if (move != Vector3.zero)
         {
+            if (walkDelayCoroutine == null)
+            {
+                walkDelayCoroutine = StartCoroutine("DelayWalkSounds");
+            }
             transform.forward = move;
         }
         if (isJumping)
@@ -91,6 +102,7 @@ public class PlayerController : MonoBehaviour
         if (context.started && isGrounded)
         {
             isJumping = true;
+            SoundManager.Instance.PlaySound("SmallJump", 1.2f);
         }
         if ((context.performed || context.canceled) && isGrounded)
         {
@@ -120,7 +132,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("changeRabbit");
         }
-        else if (state == stateController.RhinoState) 
+        else if (state == stateController.RhinoState)
         {
             animator.SetTrigger("changeRhino");
         }
@@ -133,6 +145,7 @@ public class PlayerController : MonoBehaviour
     public void OnLaunch()
     {
         rb.isKinematic = false;
+        SoundManager.Instance.PlaySound("BigJump", 5);
         playerVelocity.y = launchHeight;
         isFlying = true;
     }
@@ -164,5 +177,15 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
+    }
+
+    private IEnumerator DelayWalkSounds()
+    {
+        float delay = Random.Range(minWalkAudioDelay, maxWalkAudioDelay);
+        SoundManager.Instance.PlaySound("PlayerStep", 0.5f);
+
+        yield return new WaitForSeconds(delay);
+
+        walkDelayCoroutine = null;
     }
 }

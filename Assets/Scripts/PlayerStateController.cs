@@ -68,10 +68,12 @@ public class PlayerStateController : Singleton<PlayerStateController>
 
         currentState = newState;
         currentState.EnterState(prevState);
-        
+
         OnStateChange?.Invoke(currentState, prevState);
 
         UpdateIconOpacity(currentState);
+
+        SoundManager.Instance.PlaySound("PlayerStateChange");
     }
 
     private void UpdateIconOpacity(PlayerState newState)
