@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,7 +32,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Coroutine walkDelayCoroutine;
 
-
+    private Image bar;
+    private GameObject jumpBar;
+    [SerializeField]
+    private GameObject statusBar;
 
 
 
@@ -39,6 +43,8 @@ public class PlayerController : MonoBehaviour
     {
         stateController.OnStateChange.AddListener(HandleStateChange);
         rb = GetComponent<Rigidbody>();
+        jumpBar = statusBar.transform.GetChild(0).gameObject;
+        bar = jumpBar.GetComponent<Image>();
     }
 
     void Update()
@@ -63,6 +69,7 @@ public class PlayerController : MonoBehaviour
         if (isJumping)
         {
             jumpTimer += Time.deltaTime;
+            bar.fillAmount = Mathf.Lerp(0, 1, jumpTimer/0.5f);
         }
 
         float stateGravity = stateController.CurrentState != null ? stateController.CurrentState.GravityMultiplier : 1;
@@ -101,6 +108,8 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started && isGrounded)
         {
+            statusBar.SetActive(true);
+            jumpBar.SetActive(true);
             isJumping = true;
             SoundManager.Instance.PlaySound("SmallJump", 1.2f);
         }
@@ -110,6 +119,8 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
             jumpTimer = 0.0f;
             jumpParticles.Play();
+            statusBar.SetActive(false);
+            jumpBar.SetActive(false);
         }
     }
 
@@ -126,7 +137,7 @@ public class PlayerController : MonoBehaviour
         else if (oldState == stateController.PlaneState)
         {
             animator.SetTrigger("exitPlane");
-            if (isFlying) isFlying = false;
+            stateController.PlaneState.EndPlaneState();
         }
 
         if (state == stateController.BunnyState)

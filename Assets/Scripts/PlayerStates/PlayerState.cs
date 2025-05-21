@@ -8,7 +8,7 @@ public abstract class PlayerState
     public float GravityMultiplier {  get => gravityMutliplier; }
     protected PlayerStateController controller;
 
-    public virtual void Start(PlayerStateController controller)
+    public virtual void Start(PlayerStateController controller, GameObject @object = null)
     {
         this.controller = controller;
     }

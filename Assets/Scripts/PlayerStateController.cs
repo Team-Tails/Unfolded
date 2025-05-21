@@ -23,6 +23,10 @@ public class PlayerStateController : Singleton<PlayerStateController>
     [Header("UI Icons")]
     [SerializeField] private Image rabbitIcon;
     [SerializeField] private Image rhinoIcon;
+
+    [Header("Bars")]
+    [SerializeField]
+    private GameObject statusBar;
     
     // First state is new state, second state is old state
     [HideInInspector] public UnityEvent<PlayerState, PlayerState> OnStateChange = new UnityEvent<PlayerState, PlayerState>();
@@ -33,7 +37,7 @@ public class PlayerStateController : Singleton<PlayerStateController>
 
         bunnyState.Start(this);
         rhinoState.Start(this);
-        planeState.Start(this);
+        planeState.Start(this, statusBar);
 
         UpdateIconOpacity(currentState);
     }
