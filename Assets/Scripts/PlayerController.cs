@@ -1,85 +1,193 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody theRB;
-    public float moveSpeed, jumpForce;
-
+    [SerializeField]
+    private CharacterController characterController;
+    [SerializeField]
+    private float moveSpeed, baseJumpForce, launchHeight;
+    [HideInInspector] public bool isFlying;
     private Vector2 moveInput;
-
-    public LayerMask whatIsGround;
-    public Transform groundPoint;
+    private Vector3 playerVelocity, lastFramesVelocity = Vector3.zero;
     private bool isGrounded;
+    private bool isJumping;
+    private float jumpTimer = 0.0f;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private ParticleSystem jumpParticles;
+    [SerializeField] private float minWalkAudioDelay;
+    [SerializeField] private float maxWalkAudioDelay;
 
-    public Animator anim;
+    private const float GRAVITY = -9.81f;
+    private const float JUMPMULT = -2.0f;
+    [SerializeField]
+    private PlayerStateController stateController;
+    private Rigidbody rb;
+    private Coroutine walkDelayCoroutine;
 
-    public SpriteRenderer theSR;
-
-    private bool movingBackwards;
-
-    public Animator flipAnim;
 
 
-    
-    // Start is called before the first frame update
-    void Start()
+
+
+    private void Start()
     {
-        
+        stateController.OnStateChange.AddListener(HandleStateChange);
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
-        moveInput.Normalize();
-
-        theRB.linearVelocity = new Vector3(moveInput.x * moveSpeed, theRB.linearVelocity.y, moveInput.y * moveSpeed);
-
-        anim.SetFloat("moveSpeed", theRB.linearVelocity.magnitude);
-
-        RaycastHit hit;
-        if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsGround))
+        isGrounded = characterController.isGrounded;
+        if (isGrounded && playerVelocity.y < 0)
         {
-            isGrounded = true;
+            playerVelocity.y = 0f;
+        }
+
+        Vector3 move = new(moveInput.x, 0, moveInput.y);
+        move.Normalize();
+
+        if (move != Vector3.zero)
+        {
+            if (walkDelayCoroutine == null)
+            {
+                walkDelayCoroutine = StartCoroutine("DelayWalkSounds");
+            }
+            transform.forward = move;
+        }
+        if (isJumping)
+        {
+            jumpTimer += Time.deltaTime;
+        }
+
+        float stateGravity = stateController.CurrentState != null ? stateController.CurrentState.GravityMultiplier : 1;
+
+        playerVelocity.y += GRAVITY * stateGravity * Time.deltaTime;
+
+        animator.SetBool("onGround", isGrounded);
+
+        HandleAnimationFlip();
+
+        Vector3 horizontalMovement = move * moveSpeed;
+
+        // make plane constantly move forward
+        if (move == Vector3.zero && isFlying)
+        {
+            horizontalMovement = lastFramesVelocity;
         }
         else
         {
-            isGrounded = false;
+            lastFramesVelocity = move * moveSpeed;
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        Vector3 finalMovement = horizontalMovement + (playerVelocity.y * Vector3.up);
+        characterController.Move(finalMovement * Time.deltaTime);
+
+        animator.SetFloat("moveSpeed", characterController.velocity.magnitude);
+        animator.SetBool("jumpCharging", isJumping);
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.started && isGrounded)
         {
-            theRB.linearVelocity += new Vector3(0f, jumpForce, 0f);
+            isJumping = true;
+            SoundManager.Instance.PlaySound("SmallJump", 1.2f);
+        }
+        if ((context.performed || context.canceled) && isGrounded)
+        {
+            playerVelocity.y = Mathf.Sqrt((baseJumpForce + (jumpTimer * 4.3f)) * JUMPMULT * GRAVITY * stateController.CurrentState.JumpHeight);
+            isJumping = false;
+            jumpTimer = 0.0f;
+            jumpParticles.Play();
+        }
+    }
+
+    private void HandleStateChange(PlayerState state, PlayerState oldState)
+    {
+        if (oldState == stateController.BunnyState)
+        {
+            animator.SetTrigger("exitRabbit");
+        }
+        else if (oldState == stateController.RhinoState)
+        {
+            animator.SetTrigger("exitRhino");
+        }
+        else if (oldState == stateController.PlaneState)
+        {
+            animator.SetTrigger("exitPlane");
         }
 
-        anim.SetBool("onGround", isGrounded);
+        if (state == stateController.BunnyState)
+        {
+            animator.SetTrigger("changeRabbit");
+        }
+        else if (state == stateController.RhinoState)
+        {
+            animator.SetTrigger("changeRhino");
+        }
+        else if (state == stateController.PlaneState)
+        {
+            animator.SetTrigger("changePlane");
+        }
+    }
 
-        if(!theSR.flipX && moveInput.x < 0)
-        {
-            theSR.flipX = true;
-            flipAnim.SetTrigger("Flip");
-        }
-        else if (theSR.flipX && moveInput.x > 0)
-        {
-            theSR.flipX = false;
-            flipAnim.SetTrigger("Flip");
-        }
+    public void OnLaunch()
+    {
+        rb.isKinematic = false;
+        SoundManager.Instance.PlaySound("BigJump", 5);
+        playerVelocity.y = launchHeight;
+        isFlying = true;
+    }
 
-        if(!movingBackwards && moveInput.y > 0)
-        {
-            movingBackwards = true;
-            flipAnim.SetTrigger("Flip");
+    public void OnRabbitChange(InputAction.CallbackContext context)
+    {
+        // Automatically checks if the state is already rabbit, and then does nothing.
+        stateController.ChangeState(stateController.BunnyState);
+        rb.isKinematic = true;
+        if (isFlying) isFlying = false;
+    }
 
-        }
-        else if (movingBackwards && moveInput.y < 0)
+    public void OnRhinoChange(InputAction.CallbackContext context)
+    {
+        // Automatically checks if the state is already rhino, and then does nothing.
+        stateController.ChangeState(stateController.RhinoState);
+        rb.isKinematic = false;
+        if (isFlying) isFlying = false;
+    }
+
+    void HandleAnimationFlip()
+    {
+        spriteRenderer.transform.LookAt(Camera.main.transform.position);
+        spriteRenderer.transform.rotation = Quaternion.Euler(0, spriteRenderer.transform.rotation.y, 0);
+
+        if (spriteRenderer.flipX && moveInput.x < 0)
         {
-            movingBackwards = false;
-            flipAnim.SetTrigger("Flip");
+            spriteRenderer.flipX = false;
         }
-        anim.SetBool("movingBackwards", movingBackwards);
-       
+        else if (!spriteRenderer.flipX && moveInput.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+    }
+
+    private IEnumerator DelayWalkSounds()
+    {
+        float delay = Random.Range(minWalkAudioDelay, maxWalkAudioDelay);
+        SoundManager.Instance.PlaySound("PlayerStep", 0.5f);
+
+        yield return new WaitForSeconds(delay);
+
+        walkDelayCoroutine = null;
     }
 }
