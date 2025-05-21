@@ -1,9 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.InputSystem.XR;
-using System.Data.Common;
 
 /// <summary>
 /// Controls the state of the player e.g changing it, and what it is.
@@ -33,12 +30,12 @@ public class PlayerStateController : Singleton<PlayerStateController>
 
     private void Start()
     {
-        ChangeState(bunnyState);
 
         bunnyState.Start(this);
         rhinoState.Start(this);
         planeState.Start(this, statusBar);
 
+        ChangeState(bunnyState);
         UpdateIconOpacity(currentState);
     }
 
@@ -65,10 +62,7 @@ public class PlayerStateController : Singleton<PlayerStateController>
 
         PlayerState prevState = currentState;
 
-        if (currentState != null)
-        {
-            currentState.ExitState();
-        }
+        currentState?.ExitState();
 
         currentState = newState;
         currentState.EnterState(prevState);

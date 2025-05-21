@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleStateChange(PlayerState state, PlayerState oldState)
     {
+        print($"{state}, {oldState}");
         if (oldState == stateController.BunnyState)
         {
             animator.SetTrigger("exitRabbit");
