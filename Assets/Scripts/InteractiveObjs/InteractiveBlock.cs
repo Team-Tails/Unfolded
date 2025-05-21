@@ -9,11 +9,18 @@ public class InteractiveBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // If not a rhino, don't push
+        if (PlayerStateController.Instance.CurrentState != PlayerStateController.Instance.RhinoState)
+        {
+            return;
+        }
+
         moveDirection = (transform.position - other.transform.position);
         moveDirection.y = 0f;
         moveDirection.Normalize();
 
         isColliding = true;
+        SoundManager.Instance.PlaySound("BoxMove");
     }
 
     private void OnTriggerExit(Collider other)
