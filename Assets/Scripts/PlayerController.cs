@@ -126,15 +126,18 @@ public class PlayerController : MonoBehaviour
         else if (oldState == stateController.PlaneState)
         {
             animator.SetTrigger("exitPlane");
+            if (isFlying) isFlying = false;
         }
 
         if (state == stateController.BunnyState)
         {
             animator.SetTrigger("changeRabbit");
+            rb.isKinematic = true;
         }
         else if (state == stateController.RhinoState)
         {
             animator.SetTrigger("changeRhino");
+            rb.isKinematic = false;
         }
         else if (state == stateController.PlaneState)
         {
@@ -154,16 +157,12 @@ public class PlayerController : MonoBehaviour
     {
         // Automatically checks if the state is already rabbit, and then does nothing.
         stateController.ChangeState(stateController.BunnyState);
-        rb.isKinematic = true;
-        if (isFlying) isFlying = false;
     }
 
     public void OnRhinoChange(InputAction.CallbackContext context)
     {
         // Automatically checks if the state is already rhino, and then does nothing.
         stateController.ChangeState(stateController.RhinoState);
-        rb.isKinematic = false;
-        if (isFlying) isFlying = false;
     }
 
     void HandleAnimationFlip()
