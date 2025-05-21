@@ -221,7 +221,10 @@ MonoBehaviour:
   animator: {fileID: 8042176006061658187}
   spriteRenderer: {fileID: 6171944511431855634}
   jumpParticles: {fileID: 2488908822383222808}
+  minWalkAudioDelay: 0
+  maxWalkAudioDelay: 0
   stateController: {fileID: 6950161298684918562}
+  statusBar: {fileID: 0}
 --- !u!114 &1628684272381879648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rabbitIcon: {fileID: 0}
   rhinoIcon: {fileID: 0}
+  statusBar: {fileID: 0}
   OnStateChange:
     m_PersistentCalls:
       m_Calls: []
