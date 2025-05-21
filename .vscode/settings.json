@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Unfolded Game.sln"
+    "dotnet.defaultSolution": "Unfolded.sln"
 }
